@@ -70,11 +70,11 @@ function ShoppingHome() {
   // for navigate
 
   const handleNavigateToListingPage = (getCurrentItem, section) => {
-    sessionStorage.removeItem("filters");
+    localStorage.removeItem("filters");
     const currentFilter = {
       [section]: [getCurrentItem.id],
     };
-    sessionStorage.setItem("filters", JSON.stringify(currentFilter));
+    localStorage.setItem("filters", JSON.stringify(currentFilter));
     navigate(`/shop/listing`);
   };
 

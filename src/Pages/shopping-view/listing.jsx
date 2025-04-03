@@ -75,7 +75,7 @@ function ShoppingListing() {
     }
 
     setFilters(cpyFilters);
-    sessionStorage.setItem("filters", JSON.stringify(cpyFilters));
+    localStorage.setItem("filters", JSON.stringify(cpyFilters));
   }
 
   function handleGetProductDetails(getCurrentProductId) {
@@ -122,7 +122,7 @@ function ShoppingListing() {
 
   useEffect(() => {
     setSort("price-lowtohigh");
-    setFilters(JSON.parse(sessionStorage.getItem("filters")) || {});
+    setFilters(JSON.parse(localStorage.getItem("filters")) || {});
   }, [categorySearchParam]);
 
   useEffect(() => {

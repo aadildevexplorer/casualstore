@@ -112,7 +112,7 @@ function MenuItems() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleNavigate = (getCurrentMenuItem) => {
-    sessionStorage.removeItem("filters");
+    localStorage.removeItem("filters");
     const currentFilter =
       getCurrentMenuItem.id !== "home" &&
       getCurrentMenuItem.id !== "products" &&
@@ -122,7 +122,7 @@ function MenuItems() {
           }
         : null;
 
-    sessionStorage.setItem("filters", JSON.stringify(currentFilter));
+    localStorage.setItem("filters", JSON.stringify(currentFilter));
     location.pathname.includes("listing") && currentFilter !== null
       ? setSearchParams(
           new URLSearchParams(`?category=${getCurrentMenuItem.id}`)

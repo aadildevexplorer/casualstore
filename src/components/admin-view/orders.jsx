@@ -49,7 +49,7 @@ function AdminOrdersView() {
       <Card>
         <div className="flex items-center justify-between">
           <CardHeader>
-            <CardTitle>All orders</CardTitle>
+            <CardTitle>All Orders</CardTitle>
           </CardHeader>
         </div>
         <CardContent>
