@@ -17,7 +17,7 @@ export const fetchAllFilteredProduct = createAsyncThunk(
     });
 
     const result = await axios.get(
-      `http://localhost:8000/api/shop/products/get?${query}`
+      `https://zylomart-3bzq.onrender.com/api/shop/products/get?${query}`
     );
     return result?.data;
   }
@@ -29,7 +29,7 @@ export const fetchProductDetails = createAsyncThunk(
   "/products/fetchProductDetails",
   async (id) => {
     const result = await axios.get(
-      `http://localhost:8000/api/shop/products/get/${id}`
+      `https://zylomart-3bzq.onrender.com/api/shop/products/get/${id}`
     );
     return result?.data;
   }

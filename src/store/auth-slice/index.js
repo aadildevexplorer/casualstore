@@ -38,7 +38,7 @@ export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
 
 export const logoutUser = createAsyncThunk("/auth/logout", async () => {
   const response = await axios.post(
-    "http://localhost:8000/api/auth/logout",
+    "https://zylomart-3bzq.onrender.com/api/auth/logout",
     {},
     {
       withCredentials: true,
@@ -51,7 +51,7 @@ export const logoutUser = createAsyncThunk("/auth/logout", async () => {
 
 export const checkAuth = createAsyncThunk("/auth/checkauth", async () => {
   const response = await axios.get(
-    "http://localhost:8000/api/auth/check-auth",
+    "https://zylomart-3bzq.onrender.com/api/auth/check-auth",
     {
       withCredentials: true,
       headers: {

@@ -10,7 +10,7 @@
 // export const fetchAllUsers = createAsyncThunk(
 //   "/admin/fetchAllUsers",
 //   async () => {
-//     const result = await axios.get("http://localhost:8000/api/admin/users/get");
+//     const result = await axios.get("https://zylomart-3bzq.onrender.com/api/admin/users/get");
 //     return result?.data;
 //   }
 // );
@@ -53,7 +53,6 @@
 
 // export default usersSlice.reducer;
 
-
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -69,7 +68,7 @@ export const fetchAllUsers = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/admin/users/get"
+        "https://zylomart-3bzq.onrender.com/api/admin/users/get"
       );
       return response.data; // Assuming the response contains { users: [...] }
     } catch (error) {
@@ -94,7 +93,7 @@ const usersSlice = createSlice({
         state.isLoading = false;
 
         if (Array.isArray(action.payload.users)) {
-          state.users = action.payload.users; 
+          state.users = action.payload.users;
         } else {
           state.users = [];
         }
