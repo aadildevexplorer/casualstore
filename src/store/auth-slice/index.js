@@ -12,7 +12,7 @@ export const registerUser = createAsyncThunk(
   "/auth/register",
   async (formData) => {
     const response = await axios.post(
-      "https://casualstore-ovy9.vercel.app/api/auth/register",
+      "https://zylomart-3bzq.onrender.com/api/auth/register",
       formData,
       {
         withCredentials: true,
@@ -25,7 +25,7 @@ export const registerUser = createAsyncThunk(
 // for login
 export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
   const response = await axios.post(
-    "https://casualstore-ovy9.vercel.app/api/auth/login",
+    "https://zylomart-3bzq.onrender.com/api/auth/login",
     formData,
     {
       withCredentials: true,
