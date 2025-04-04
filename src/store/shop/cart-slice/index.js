@@ -12,7 +12,7 @@ export const addToCart = createAsyncThunk(
   "cart/addToCart",
   async ({ userId, productId, quantity }) => {
     const response = await axios.post(
-      "http://localhost:8000/api/shop/cart/add",
+      "https://zylomart-3bzq.onrender.com/api/shop/cart/add",
       {
         userId,
         productId,
@@ -30,7 +30,7 @@ export const fetchCartItems = createAsyncThunk(
   "cart/fetchCartItems",
   async (userId) => {
     const response = await axios.get(
-      `http://localhost:8000/api/shop/cart/get/${userId}`
+      `https://zylomart-3bzq.onrender.com/api/shop/cart/get/${userId}`
     );
     return response.data;
   }
@@ -42,7 +42,7 @@ export const deleteCartItem = createAsyncThunk(
   "cart/deleteCartItem",
   async ({ userId, productId }) => {
     const response = await axios.delete(
-      `http://localhost:8000/api/shop/cart/${userId}/${productId}`
+      `https://zylomart-3bzq.onrender.com/api/shop/cart/${userId}/${productId}`
     );
     return response.data;
   }
@@ -54,7 +54,7 @@ export const updateCartQuantity = createAsyncThunk(
   "cart/updateCartQuantity",
   async ({ userId, productId, quantity }) => {
     const response = await axios.put(
-      " http://localhost:8000/api/shop/cart/update-cart",
+      " https://zylomart-3bzq.onrender.com/api/shop/cart/update-cart",
       {
         userId,
         productId,
