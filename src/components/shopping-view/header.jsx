@@ -1,4 +1,4 @@
-import { HousePlug, LogOut, Menu, ShoppingCart, UserCog } from "lucide-react";
+import { CircleUser, HousePlug, LogOut, Menu, ShoppingCart, UserCog } from "lucide-react";
 import {
   Link,
   useLocation,
@@ -81,6 +81,7 @@ function HeaderRightContent() {
             <Avatar className="bg-black cursor-pointer">
               <AvatarFallback className="bg-black text-white font-extrabold">
                 {/* {user?.userName[0]?.toUpperCase()} */}
+                <CircleUser />
               </AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>

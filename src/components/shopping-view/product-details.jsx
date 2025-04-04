@@ -1,4 +1,4 @@
-import { StarIcon } from "lucide-react";
+import { CircleUser, StarIcon } from "lucide-react";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent } from "../ui/dialog";
@@ -176,7 +176,8 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
                     <div className="flex gap-4">
                       <Avatar className="w-10 h-10 border">
                         <AvatarFallback>
-                          {reviewItem?.userName[0]?.toUpperCase()}
+                          <CircleUser />
+                          {/* {reviewItem?.userName[0]?.toUpperCase()} */}
                         </AvatarFallback>
                       </Avatar>
                       <div className="grid gap-1">
