@@ -13,11 +13,11 @@ function PaypalReturnPage() {
 
   useEffect(() => {
     if (paymentId && payerId) {
-      const orderId = JSON.parse(localStorage.getItem("currentOrderId"));
+      const orderId = JSON.parse(sessionStorage.getItem("currentOrderId"));
 
       dispatch(capturePayment({ paymentId, payerId, orderId })).then((data) => {
         if (data?.payload?.success) {
-          localStorage.removeItem("currentOrderId");
+          sessionStorage.removeItem("currentOrderId");
           window.location.href = "/shop/payment-success";
         }
       });
