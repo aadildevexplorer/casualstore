@@ -11,7 +11,7 @@ import {
   fetchProductDetails,
   setProductDetails,
 } from "@/store/shop/product-slice";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";  
 import { Label } from "../ui/label";
 import StarRatingComponent from "../common/starRating";
 import { addReview, getReviews } from "@/store/shop/review-slice";
@@ -171,12 +171,12 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
             <div className="max-h-[300px] overflow-auto">
               <h2 className="text-xl font-bold mb-4">Reviews</h2>
               <div className="grid gap-6">
-                {reviews && reviews.length > 0 ? (
-                  reviews.map((reviewItem) => (
+                {reviews && reviews?.length > 0 ? (
+                  reviews?.map((reviewItem) => (
                     <div className="flex gap-4">
                       <Avatar className="w-10 h-10 border">
                         <AvatarFallback>
-                          {reviewItem?.userName[0].toUpperCase()}
+                          {reviewItem?.userName[0]?.toUpperCase()}
                         </AvatarFallback>
                       </Avatar>
                       <div className="grid gap-1">
@@ -191,7 +191,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
                           />
                         </div>
                         <p className="text-muted-foreground">
-                          {reviewItem.reviewMessage}
+                          {reviewItem?.reviewMessage}
                         </p>
                       </div>
                     </div>
@@ -211,12 +211,12 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
                 <Input
                   name="reviewMsg"
                   value={reviewMsg}
-                  onChange={(event) => setReviewMsg(event.target.value)}
+                  onChange={(event) => setReviewMsg(event?.target?.value)}
                   placeholder="Write a review..."
                 />
                 <Button
                   onClick={handleAddReview}
-                  disabled={reviewMsg.trim() === ""}
+                  disabled={reviewMsg?.trim() === ""}
                 >
                   Submit
                 </Button>
