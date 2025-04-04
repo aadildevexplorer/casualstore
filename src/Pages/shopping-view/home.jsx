@@ -158,7 +158,7 @@ function ShoppingHome() {
         </div> */}
 
         <div className="relative w-full min-h-[300px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-[600px] overflow-hidden">
-          {slides?.map((slide, index) => (
+          {slides.map((slide, index) => (
             <img
               src={slide}
               key={index}
@@ -201,7 +201,7 @@ function ShoppingHome() {
               Shop by category
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              {categoriesWithIcon?.map((categoryItem) => (
+              {categoriesWithIcon.map((categoryItem) => (
                 <Card
                   onClick={() =>
                     handleNavigateToListingPage(categoryItem, "category")
@@ -224,7 +224,7 @@ function ShoppingHome() {
               Shop by Brand
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {brandsWithIcon?.map((brandItem) => (
+              {brandsWithIcon.map((brandItem) => (
                 <Card
                   onClick={() =>
                     handleNavigateToListingPage(brandItem, "brand")
@@ -247,7 +247,7 @@ function ShoppingHome() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {productList && productList.length > 0
-                ? productList?.map((productItem) => (
+                ? productList.map((productItem) => (
                     <ShoppingProductTile
                       handleAddtoCart={handleAddtoCart}
                       handleGetProductDetails={handleGetProductDetails}
