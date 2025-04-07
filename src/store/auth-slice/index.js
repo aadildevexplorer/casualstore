@@ -25,7 +25,7 @@ export const registerUser = createAsyncThunk(
 // for login
 export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
   const response = await axios.post(
-    "https://zylomart-3bzq.onrender.com/api/auth/login",
+    "http://localhost:8000/api/auth/login",
     formData,
     {
       withCredentials: true,
