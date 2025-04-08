@@ -246,15 +246,17 @@ function ShoppingHome() {
               Feature Products{" "}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {productList && productList?.length > 0
-                ? productList?.map((productItem) => (
-                    <ShoppingProductTile
-                      handleAddtoCart={handleAddtoCart}
-                      handleGetProductDetails={handleGetProductDetails}
-                      product={productItem}
-                    />
-                  ))
-                : null}
+              {productList && productList?.length > 0 ? (
+                productList?.map((productItem) => (
+                  <ShoppingProductTile
+                    handleAddtoCart={handleAddtoCart}
+                    handleGetProductDetails={handleGetProductDetails}
+                    product={productItem}
+                  />
+                ))
+              ) : (
+                <img src="https://img1a.flixcart.com/www/linchpin/fk-cp-zion/img/error-500_f9bbb4.png" />
+              )}
             </div>
           </div>
         </section>

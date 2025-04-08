@@ -182,6 +182,7 @@ export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
 
 // Logout
 export const logoutUser = createAsyncThunk("/auth/logout", async () => {
+  localStorage.removeItem("user");
   const response = await axios.post(
     "https://zylomart-3bzq.onrender.com/api/auth/logout",
     {},
@@ -197,7 +198,8 @@ export const checkAuth = createAsyncThunk("/auth/checkauth", async () => {
     {
       withCredentials: true,
       headers: {
-        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+        "Cache-Control":
+          "no-store, no-cache, must-revalidate, proxy-revalidate",
       },
     }
   );
@@ -279,7 +281,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.user = null;
         state.isAuthenticated = false;
-        localStorage.removeItem("user");
+        // localStorage.removeItem("user");
       });
   },
 });

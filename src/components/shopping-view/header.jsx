@@ -254,12 +254,13 @@ function HeaderRightContent() {
             className="relative"
             size="icon"
           >
-            <ShoppingCart className="w-6 h-6">
-              <span className="absolute top-[-5px] right-[2px] font-bold text-sm">
-                {/* {cartItems?.length || 0} */}2
-              </span>{" "}
+            <div>
+              <ShoppingCart className="w-6 h-6" />
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+                {cartItems?.items?.length || 0}
+              </span>
               <span className="sr-only">User Cart</span>
-            </ShoppingCart>
+            </div>
           </Button>
           <UserCartWrapper
             setOpenCartSheet={setOpenCartSheet}

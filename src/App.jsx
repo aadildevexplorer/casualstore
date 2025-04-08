@@ -147,7 +147,7 @@ const App = () => {
   if (isLoading) {
     return (
       <>
-        <Skeleton className="w-[800] bg-black h-[600px]" />
+        <Skeleton className="w-[800] bg-black h-[640px]" />
       </>
     );
   }
