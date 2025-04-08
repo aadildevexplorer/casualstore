@@ -216,6 +216,7 @@ const App = () => {
           </Route>
           <Route path="/unauth-page" element={<UnauthPage />} />
           <Route path="*" element={<NotFound />} />
+          {/* <Route path='' */}
         </Routes>
       </div>
     </>
