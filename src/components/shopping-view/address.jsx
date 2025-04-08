@@ -42,6 +42,13 @@ function Address({ setCurrentSelectedAddress, selectedId }) {
       return;
     }
 
+    if (formData?.phone?.length != 10) {
+      return toast({
+        title: "Enter a Valid Phone Number!",
+        variant: "destructive",
+      });
+    }
+
     currentEditedId !== null
       ? dispatch(
           editaAddress({

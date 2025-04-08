@@ -99,6 +99,15 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
     setReviewMsg("");
   }
 
+    const handleCard = () => {
+    if (!user) {
+      toast({
+        title: "Logged in Continue",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <>
       <Dialog open={open} onOpenChange={handleDialogClose}>
@@ -155,12 +164,13 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
               ) : (
                 <Button
                   className="w-full"
-                  onClick={() =>
+                  onClick={() => {
                     handleAddtoCart(
                       productDetails?._id,
                       productDetails?.totalStock
-                    )
-                  }
+                    );
+                    handleCard();
+                  }}
                 >
                   Add to Cart
                 </Button>
