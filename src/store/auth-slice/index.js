@@ -111,7 +111,7 @@ const authSlice = createSlice({
       })
 
       // for check-auth
-
+        // fdor cbehfvbj iehv
       .addCase(checkAuth.pending, (state) => {
         state.isLoading = true;
       });
