@@ -133,7 +133,6 @@ import AdminUsers from "./Pages/admin-view/users";
 import PaypalReturnPage from "./Pages/shopping-view/paypal-return";
 import PaymentSuccessPage from "./Pages/shopping-view/payment-success";
 import SearchProducts from "./Pages/shopping-view/search";
-import Hero from "./components/hero";
 
 const App = () => {
   const { user, isAuthenticated, isLoading } = useSelector(
