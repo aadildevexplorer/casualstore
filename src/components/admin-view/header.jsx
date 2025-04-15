@@ -9,9 +9,9 @@ function AdminHeader({ setOpen }) {
   const { toast } = useToast();
   const handleLogOut = () => {
     dispatch(logoutUser());
-   toast({
-     title: "Logged out SuccessFully",
-   });
+    toast({
+      title: "Logged out SuccessFully",
+    });
   };
 
   return (
