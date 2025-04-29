@@ -35,7 +35,6 @@
 //   const dispatch = useDispatch();
 //   const { toast } = useToast();
 
-//   // console.log("cartItems", cartItems);
 //   const handleLogOut = () => {
 //     dispatch(logoutUser());
 //     toast({

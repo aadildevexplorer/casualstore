@@ -2,8 +2,8 @@ import CommonForm from "@/components/common/form";
 import { registerFormControls } from "@/config";
 import { useToast } from "@/hooks/use-toast";
 import { registerUser } from "@/store/auth-slice";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
 const initialState = {
@@ -12,6 +12,7 @@ const initialState = {
   password: "",
 };
 function AuthRegister() {
+  const {user} = useSelector((state => state.auth))
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,7 +26,6 @@ function AuthRegister() {
           title: data?.payload?.message,
         });
         navigate("/auth/login");
-        // navigate("/shop/home");
       } else {
         toast({
           title: data?.payload?.message,
@@ -34,7 +34,11 @@ function AuthRegister() {
       }
     });
   }
-  // console.log(formData);
+  // useEffect(() => {
+  //   if (user) {
+  //     navigate("/shop/home");
+  //   }
+  // }, [user, navigate]);
 
   return (
     <>

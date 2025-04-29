@@ -39,11 +39,6 @@ function AdminOrdersView() {
     if (orderDetails !== null) setOpenDetailsDialog(true);
   }, [orderDetails]);
 
-  // const Orders = ({ orderId }) => {
-  //   console.log("📌 Order ID in Component:", orderId);
-  //   dispatch(getOrderDetailsForAdmin(orderId));
-  // };
-
   return (
     <>
       <Card>

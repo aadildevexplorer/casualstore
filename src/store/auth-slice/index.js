@@ -97,7 +97,6 @@
 //       });
 
 //     builder.addCase(loginUser.fulfilled, (state, action) => {
-//       // console.log(action);
 //       state.isLoading = false;
 //       state.user = action.payload.success ? action.payload.user : null;
 //       state.isAuthenticated = action.payload.success;
@@ -223,12 +222,18 @@ const authSlice = createSlice({
       // Register
       .addCase(registerUser.pending, (state) => {
         state.isLoading = true;
-      })
-      .addCase(registerUser.fulfilled, (state) => {
+      });
+    builder
+      .addCase(registerUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = null;
         state.isAuthenticated = false;
       })
+
+      //   if (action.payload && action.payload.user) {
+      //     state.user = action.payload.user;
+      //   }
+      //   state.isAuthenticated = action.payload.success;
       .addCase(registerUser.rejected, (state) => {
         state.isLoading = false;
         state.user = null;

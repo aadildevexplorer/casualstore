@@ -30,7 +30,6 @@
 //       //   state.users = action.payload.data || action.payload;
 //       // })
 //       .addCase(fetchAllUsers.fulfilled, (state, action) => {
-//         console.log("Redux Payload:", action.payload); // Debugging
 //         state.isLoading = false;
 
 //         // Ensure users is always an array
@@ -44,7 +43,6 @@
 //       })
 
 //       .addCase(fetchAllUsers.rejected, (state, action) => {
-//         console.log(action.payload);
 //         state.isLoading = false;
 //         state.users = [];
 //       });
@@ -89,7 +87,6 @@ const usersSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchAllUsers.fulfilled, (state, action) => {
-        console.log("Redux Payload:", action.payload); // Debugging
         state.isLoading = false;
 
         if (Array.isArray(action.payload.users)) {
@@ -99,7 +96,6 @@ const usersSlice = createSlice({
         }
       })
       .addCase(fetchAllUsers.rejected, (state, action) => {
-        console.error("Error fetching users:", action.payload);
         state.isLoading = false;
         state.error = action.payload;
         state.users = [];

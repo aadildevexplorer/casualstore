@@ -15,7 +15,6 @@ function ProductImageUpload({
   setImageLoadingState,
 }) {
   const inputRef = useRef(null);
-  console.log(isEditMode);
   const handleImageFileChange = (event) => {
     const selectedFile = event.target.files?.[0];
     if (selectedFile) setImageFile(selectedFile);
@@ -37,7 +36,6 @@ function ProductImageUpload({
       inputRef.current.value = "";
     }
   };
-  //   console.log(imageFile);
 
   async function uploadImageToCloudinary() {
     setImageLoadingState(true);
@@ -47,7 +45,6 @@ function ProductImageUpload({
       "https://zylomart-3bzq.onrender.com/api/admin/products/upload-image",
       data
     );
-    console.log(response, "response");
     if (response.data.success) {
       setUploadImageUrl(response.data.result.url);
       setImageLoadingState(false);

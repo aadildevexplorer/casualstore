@@ -16,7 +16,6 @@ function UserCartItemsContent({ cartItems }) {
       title: "Product deleted!",
     });
     if (!getCartItem || !getCartItem.productId) {
-      console.error("Error: getCartItem is missing!");
       return;
     }
 
@@ -38,8 +37,6 @@ function UserCartItemsContent({ cartItems }) {
           (product) => product._id === getCartItem?.productId
         );
         const getTotalStock = productList[getCurrentProductIndex].totalStock;
-
-        console.log(getCurrentProductIndex, getTotalStock, "getTotalStock");
 
         if (indexOfCurrentCartItem > -1) {
           const getQuantity = getCartItems[indexOfCurrentCartItem].quantity;

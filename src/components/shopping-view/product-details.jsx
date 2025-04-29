@@ -25,7 +25,6 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
   const [rating, setRating] = useState(0);
 
   function handleRatingChange(getRating) {
-    console.log(getRating, "getRating");
     setRating(getRating);
   }
 
