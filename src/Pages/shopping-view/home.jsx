@@ -121,42 +121,6 @@ function ShoppingHome() {
   return (
     <>
       <div className="flex flex-col min-h-screen">
-        {/* <div className="relative w-full h-[600px] overflow-hidden">
-          {slides.map((slide, index) => (
-            <img
-              src={slide}
-              key={index}
-              className={`${
-                index === currentSlide ? "opacity-100" : "opacity-0"
-              } absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000`}
-            />
-          ))}
-
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() =>
-              setCurrentSlide(
-                (prevSlide) => (prevSlide - 1 + slides.length) % slides.length
-              )
-            }
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80"
-          >
-            <ChevronLeftIcon className="w-4 h-4" />
-          </Button>
-
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() =>
-              setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length)
-            }
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80"
-          >
-            <ChevronRightIcon className="w-4 h-4" />
-          </Button>
-        </div> */}
-
         <div className="relative w-full min-h-[300px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-[600px] overflow-hidden">
           {slides?.map((slide, index) => (
             <img
@@ -246,16 +210,21 @@ function ShoppingHome() {
               Feature Products{" "}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {productList && productList?.length > 0 ? (
-                productList?.map((productItem) => (
+              {productList && productList.length > 0 ? (
+                productList.map((productItem) => (
                   <ShoppingProductTile
+                    key={productItem._id}
                     handleAddtoCart={handleAddtoCart}
                     handleGetProductDetails={handleGetProductDetails}
                     product={productItem}
                   />
                 ))
               ) : (
-                <img src="https://img1a.flixcart.com/www/linchpin/fk-cp-zion/img/error-500_f9bbb4.png" />
+                <div className="loader flex items-center justify-center md:ml-[270px]">
+                  <svg viewBox="25 25 50 50">
+                    <circle cx="50" cy="50" r="20"></circle>
+                  </svg>
+                </div>
               )}
             </div>
           </div>

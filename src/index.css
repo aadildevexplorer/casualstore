@@ -80,3 +80,62 @@
   background-color: black;
   color: white;
 }
+
+.spinner svg {
+  width: 50px;
+  transform-origin: center;
+  margin-top: 15%;
+  animation: rotate4 2s linear infinite;
+}
+
+.spinner circle {
+  fill: none;
+  stroke: white;
+  stroke-width: 8;
+  font-weight: bold;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash4 1.5s ease-in-out infinite;
+}
+
+.loaader svg {
+  width: 50px;
+  transform-origin: center;
+  margin-top: 15%;
+  animation: rotate4 2s linear infinite;
+}
+
+.loader circle {
+  fill: none;
+  stroke: black;
+  stroke-width: 8;
+  font-weight: bold;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash4 1.5s ease-in-out infinite;
+}
+
+
+@keyframes rotate4 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash4 {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dashoffset: -125px;
+  }
+}

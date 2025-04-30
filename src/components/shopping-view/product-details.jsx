@@ -11,7 +11,7 @@ import {
   fetchProductDetails,
   setProductDetails,
 } from "@/store/shop/product-slice";
-import { useEffect, useState } from "react";  
+import { useEffect, useState } from "react";
 import { Label } from "../ui/label";
 import StarRatingComponent from "../common/starRating";
 import { addReview, getReviews } from "@/store/shop/review-slice";
@@ -23,6 +23,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
   const { reviews } = useSelector((state) => state.shopReview);
   const [reviewMsg, setReviewMsg] = useState("");
   const [rating, setRating] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   function handleRatingChange(getRating) {
     setRating(getRating);
@@ -98,13 +99,25 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
     setReviewMsg("");
   }
 
-    const handleCard = () => {
+  const handleCard = () => {
     if (!user) {
       toast({
-        title: "Logged in Continue",
+        title: "logged in continue",
         variant: "destructive",
       });
+      return false;
     }
+    return true;
+  };
+
+  const handleClick = () => {
+    if (!handleCard()) return;
+    setLoading(true);
+    handleAddtoCart(productDetails?._id, productDetails?.totalStock);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   };
 
   return (
@@ -162,17 +175,40 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
                 </Button>
               ) : (
                 <Button
-                  className="w-full"
+                  // onClick={handleClick}
                   onClick={() => {
-                    handleAddtoCart(
+                    handleClick(
                       productDetails?._id,
                       productDetails?.totalStock
                     );
                     handleCard();
                   }}
+                  disabled={loading}
+                  className={`w-full flex items-center justify-center gap-2 ${
+                    loading ? "cursor-not-allowed" : ""
+                  }`}
                 >
-                  Add to Cart
+                  {loading && (
+                    <div class="spinner">
+                      <svg viewBox="25 25 50 50">
+                        <circle cx="50" cy="50" r="20"></circle>
+                      </svg>
+                    </div>
+                  )}
+                  {loading ? "Add to Cart" : "Add to Cart"}
                 </Button>
+                // <Button
+                //   className="w-full"
+                // onClick={() => {
+                //   handleAddtoCart(
+                // productDetails?._id,
+                // productDetails?.totalStock
+                //   );
+                //   handleCard();
+                // }}
+                // >
+                //   Add to Cart
+                // </Button>
               )}
             </div>
             <Separator />
