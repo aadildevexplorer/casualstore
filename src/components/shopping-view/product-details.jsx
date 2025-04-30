@@ -1,4 +1,4 @@
-import { CircleUser, StarIcon } from "lucide-react";
+import { CircleUser, ShoppingBasket, StarIcon } from "lucide-react";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent } from "../ui/dialog";
@@ -194,21 +194,15 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
                         <circle cx="50" cy="50" r="20"></circle>
                       </svg>
                     </div>
+                  )}{" "}
+                  {loading ? (
+                    <>GOING TO CART</>
+                  ) : (
+                    <>
+                      <ShoppingBasket /> ADD TO CART
+                    </>
                   )}
-                  {loading ? "Add to Cart" : "Add to Cart"}
                 </Button>
-                // <Button
-                //   className="w-full"
-                // onClick={() => {
-                //   handleAddtoCart(
-                // productDetails?._id,
-                // productDetails?.totalStock
-                //   );
-                //   handleCard();
-                // }}
-                // >
-                //   Add to Cart
-                // </Button>
               )}
             </div>
             <Separator />
