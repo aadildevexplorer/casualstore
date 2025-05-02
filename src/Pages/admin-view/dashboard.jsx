@@ -19,6 +19,11 @@ export default function AdminDashboard() {
   const { productsList } = useSelector((state) => state.adminProducts);
 
   const [totalSale, setTotalSale] = useState(0);
+
+  const Sale = 149093;
+
+  const formatted = Math.floor(totalSale / 10000) / 10 + "L";
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -70,7 +75,12 @@ export default function AdminDashboard() {
           <p className="text-gray-500 text-sm uppercase tracking-wide">
             Revenue
           </p>
-          <p className="text-3xl font-bold text-gray-800">${totalSale || 0}</p>
+          {/* <p className="text-3xl font-bold text-gray-800">
+            ₹{Math.floor(totalSale / 10000) / 10}L
+          </p> */}
+          <p className="text-3xl font-bold text-gray-800">
+            ₹{Math.floor(totalSale / 10000) / 10}L
+          </p>
         </CardContent>
       </Card>
 
