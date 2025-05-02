@@ -33,10 +33,10 @@ export default function Footer() {
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
               Casual-Store
             </h2>
-            <p className="mt-2 text-sm text-black dark:text-gray-400">
-              Shop smarter with YourStore — premium products, <br /> unbeatable
-              prices, fast delivery, and 24/7 support <br /> Discover what you
-              love, effortlessly.
+            <p className="mt-2 text-sm text-black dark:text-gray-400 leading-relaxed">
+              Shop smarter with Casual-Store premium products, unbeatable prices,
+              fast delivery, and 24/7 support. Discover what you love,
+              effortlessly.
             </p>
           </div>
 
@@ -192,9 +192,9 @@ export default function Footer() {
                 Call:{" "}
                 <a
                   href="tel:+919826046890"
-                  className="text-black dark:text-gray-300 hover:underline"
+                  className="text-black  dark:text-gray-300 hover:underline"
                 >
-                  +91 98260-46890
+                  98260-46890
                 </a>
               </li>
               <li className="flex items-center gap-2 text-black">
