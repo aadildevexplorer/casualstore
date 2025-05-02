@@ -133,6 +133,7 @@ import AdminUsers from "./Pages/admin-view/users";
 import PaypalReturnPage from "./Pages/shopping-view/paypal-return";
 import PaymentSuccessPage from "./Pages/shopping-view/payment-success";
 import SearchProducts from "./Pages/shopping-view/search";
+import Footer from "./Pages/shopping-view/footer";
 
 const App = () => {
   const { user, isAuthenticated, isLoading } = useSelector(
@@ -216,6 +217,7 @@ const App = () => {
           <Route path="/unauth-page" element={<UnauthPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </div>
     </>
   );
