@@ -226,26 +226,26 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex gap-4">
-            <img
+            {/* <img
               className="h-6"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1MUMXz1G7LSmOmsUgtpSVrB_aW4R79Lxv3g&s"
               alt=""
-            />
-            <img
+            /> */}
+            {/* <img
               src="https://pngimg.com/d/mastercard_PNG16.png"
               alt="MasterCard"
               className="h-6"
-            />
+            /> */}
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLmCw9KwTMuJOlqCjSQ8StSY7qg0gMtohnqA&s"
               alt="PayPal"
               className="h-6"
             />
-            <img
+            {/* <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5FNtLFxWODABAJtVR3ZVcsvU0mtsSIPFv5w&s"
               alt="Apple Pay"
               className="h-6"
-            />
+            /> */}
           </div>
         </div>
       </div>

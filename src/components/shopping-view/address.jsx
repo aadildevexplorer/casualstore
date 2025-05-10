@@ -118,6 +118,20 @@ function Address({ setCurrentSelectedAddress, selectedId }) {
       city: getCurrentAddress?.city,
     });
   }
+  function handleSubmit(event) {
+    if (!user) {
+      event.preventDefault();
+      toast({
+        title: "Logged in First!",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    handleManageAddress(event);
+  }
+  
+  
 
   useEffect(() => {
     dispatch(fetchAllAddresses(user?.id));
@@ -150,7 +164,7 @@ function Address({ setCurrentSelectedAddress, selectedId }) {
             formData={formData}
             setFormData={setFormData}
             buttonText={currentEditedId !== null ? "Edit" : "Add"}
-            onSubmit={handleManageAddress}
+            onSubmit={(handleManageAddress, handleSubmit)}
             isBtnDisabled={!isFormValid()}
           />
         </CardContent>
