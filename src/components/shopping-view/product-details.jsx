@@ -117,7 +117,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
 
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
   };
 
   return (
