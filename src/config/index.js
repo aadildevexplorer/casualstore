@@ -77,12 +77,51 @@ export const addProductFormElements = [
     name: "brand",
     componentType: "select",
     options: [
+      // for men cloth
       { id: "nike", label: "Nike" },
       { id: "adidas", label: "Adidas" },
       { id: "puma", label: "Puma" },
-      { id: "levi", label: "Levi's" },
+      { id: "levis", label: "Levi's" },
+      { id: "hm", label: "H&M" },
+      { id: "jackjones", label: "Jack & Jones" },
+      { id: "uspa", label: "U.S. Polo Assn." },
+      { id: "peterengland", label: "Peter England" },
+      { id: "vanheusen", label: "Van Heusen" },
+      { id: "raymond", label: "Raymond" },
+      { id: "allen_solly", label: "Allen Solly" },
+
+      // for watch
+      { id: "rolex", label: "Rolex" },
+      { id: "fossil", label: "Fossil" },
+      { id: "titan", label: "Titan" },
+      { id: "casio", label: "Casio" },
+      { id: "seiko", label: "Seiko" },
+      { id: "citizen", label: "Citizen" },
+      { id: "tommyhilfiger", label: "Tommy Hilfiger" },
+      { id: "timex", label: "Timex" },
+      { id: "tagheuer", label: "Tag Heuer" },
+      { id: "danielwellington", label: "Daniel Wellington" },
+
+      // for shoes
+      { id: "reebok", label: "Reebok" },
+      { id: "skechers", label: "Skechers" },
+      { id: "newbalance", label: "New Balance" },
+      { id: "underarmour", label: "Under Armour" },
+      { id: "woodland", label: "Woodland" },
+      { id: "bata", label: "Bata" },
+      { id: "redtape", label: "Red Tape" },
+
+      // for women cloth
       { id: "zara", label: "Zara" },
-      { id: "h&m", label: "H&M" },
+      { id: "hm", label: "H&M" },
+      { id: "mango", label: "Mango" },
+      { id: "forever21", label: "Forever 21" },
+      { id: "biba", label: "Biba" },
+      { id: "w", label: "W for Woman" },
+      { id: "globaldesi", label: "Global Desi" },
+      { id: "fabindia", label: "FabIndia" },
+      { id: "nykaa", label: "Nykaa Fashion" },
+      { id: "libas", label: "Libas" },
     ],
   },
   {
@@ -170,12 +209,50 @@ export const categoryOptionsMap = {
 };
 
 export const brandOptionsMap = {
+  // men clothing
   nike: "Nike",
   adidas: "Adidas",
   puma: "Puma",
-  levi: "Levi",
+  levis: "Levi's",
   zara: "Zara",
   "h&m": "H&M",
+  jackjones: "Jack & Jones",
+  uspa: "U.S. Polo Assn.",
+  tommyhilfiger: "Tommy Hilfiger",
+  peterengland: "Peter England",
+  vanheusen: "Van Heusen",
+  raymond: "Raymond",
+  allen_solly: "Allen Solly",
+
+  // watches
+  rolex: "Rolex",
+  fossil: "Fossil",
+  titan: "Titan",
+  casio: "Casio",
+  seiko: "Seiko",
+  citizen: "Citizen",
+  timex: "Timex",
+  tagheuer: "Tag Heuer",
+  danielwellington: "Daniel Wellington",
+
+  // shoes
+  reebok: "Reebok",
+  skechers: "Skechers",
+  newbalance: "New Balance",
+  underarmour: "Under Armour",
+  woodland: "Woodland",
+  bata: "Bata",
+  redtape: "Red Tape",
+
+  // women clothing
+  mango: "Mango",
+  forever21: "Forever 21",
+  biba: "Biba",
+  w: "W for Woman",
+  globaldesi: "Global Desi",
+  fabindia: "FabIndia",
+  nykaa: "Nykaa Fashion",
+  libas: "Libas",
 };
 
 export const filterOptions = {
@@ -187,12 +264,52 @@ export const filterOptions = {
     { id: "footwear", label: "Footwear" },
   ],
   brand: [
+    // for men cloth
     { id: "nike", label: "Nike" },
     { id: "adidas", label: "Adidas" },
     { id: "puma", label: "Puma" },
-    { id: "levi", label: "Levi's" },
+    { id: "levis", label: "Levi's" },
     { id: "zara", label: "Zara" },
-    { id: "h&m", label: "H&M" },
+    { id: "hm", label: "H&M" },
+    { id: "jackjones", label: "Jack & Jones" },
+    { id: "uspa", label: "U.S. Polo Assn." },
+    { id: "peterengland", label: "Peter England" },
+    { id: "vanheusen", label: "Van Heusen" },
+    { id: "raymond", label: "Raymond" },
+    { id: "allen_solly", label: "Allen Solly" },
+
+    // for watch
+    { id: "rolex", label: "Rolex" },
+    { id: "fossil", label: "Fossil" },
+    { id: "titan", label: "Titan" },
+    { id: "casio", label: "Casio" },
+    { id: "seiko", label: "Seiko" },
+    { id: "citizen", label: "Citizen" },
+    { id: "tommyhilfiger", label: "Tommy Hilfiger" },
+    { id: "timex", label: "Timex" },
+    { id: "tagheuer", label: "Tag Heuer" },
+    { id: "danielwellington", label: "Daniel Wellington" },
+
+    // for shoes
+    { id: "puma", label: "Puma" },
+    { id: "reebok", label: "Reebok" },
+    { id: "skechers", label: "Skechers" },
+    { id: "newbalance", label: "New Balance" },
+    { id: "underarmour", label: "Under Armour" },
+    { id: "woodland", label: "Woodland" },
+    { id: "bata", label: "Bata" },
+    { id: "redtape", label: "Red Tape" },
+
+    // for women cloth
+    { id: "zara", label: "Zara" },
+    { id: "mango", label: "Mango" },
+    { id: "forever21", label: "Forever 21" },
+    { id: "biba", label: "Biba" },
+    { id: "w", label: "W for Woman" },
+    { id: "globaldesi", label: "Global Desi" },
+    { id: "fabindia", label: "FabIndia" },
+    { id: "nykaa", label: "Nykaa Fashion" },
+    { id: "libas", label: "Libas" },
   ],
 };
 
