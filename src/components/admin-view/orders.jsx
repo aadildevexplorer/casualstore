@@ -18,10 +18,43 @@ import {
   resetOrderDetails,
 } from "@/store/admin/order-slice";
 import { Badge } from "../ui/badge";
+import { useToast } from "@/hooks/use-toast";
+import { X } from "lucide-react";
 function AdminOrdersView() {
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
   const { orderList, orderDetails } = useSelector((state) => state.adminOrders);
+  const [removeOrders, setRemoveOrders] = useState([]);
+  const { toast } = useToast();
   const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    toast({
+      title: "Orders Deleted",
+    });
+  };
+
+  // for delete Orders
+  useEffect(() => {
+    if (Array.isArray(orderList)) {
+      const deleteId = JSON.parse(localStorage.getItem("deleteOrders") || "[]");
+      const remainingOrders = orderList.filter(
+        (order) => !deleteId.includes(order?._id)
+      );
+      setRemoveOrders(remainingOrders);
+    }
+  }, [orderList]);
+
+  const deleteOrders = (id) => {
+    // 1. Update localStorage
+    const deletedId = JSON.parse(localStorage.getItem("deleteOrders") || "[]");
+    if (!deletedId.includes(id)) {
+      deletedId.push(id);
+      localStorage.setItem("deleteOrders", JSON.stringify(deletedId));
+    }
+
+    // 2. Update local state
+    setRemoveOrders((prev) => prev.filter((order) => order._id !== id));
+  };
 
   useEffect(() => {
     dispatch(getAllOrdersForAdmin());
@@ -63,8 +96,8 @@ function AdminOrdersView() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {orderList && orderList.length > 0 ? (
-                orderList.map((orderItem, index) => (
+              {Array.isArray(removeOrders) && removeOrders.length > 0 ? (
+                removeOrders.map((orderItem, index) => (
                   <TableRow>
                     <TableCell>{index + 1}</TableCell>
                     <TableCell>{orderItem?._id}</TableCell>
@@ -99,10 +132,20 @@ function AdminOrdersView() {
                         >
                           View Details
                         </Button>
+
                         <AdminOrdersDetailsView orderDetails={orderDetails} />
                         {/* <ShoppingOrderDetailsView
                           />  */}
                       </Dialog>
+                    </TableCell>
+
+                    <TableCell
+                      className="cursor-pointer"
+                      onClick={() => {
+                        handleDelete(), deleteOrders(orderItem?._id);
+                      }}
+                    >
+                      <X />
                     </TableCell>
                   </TableRow>
                 ))

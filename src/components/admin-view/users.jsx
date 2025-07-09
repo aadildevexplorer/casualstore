@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import {
   Table,
@@ -10,14 +10,47 @@ import {
 } from "../ui/table";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllUsers } from "@/store/admin/users-slice";
+import { X } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const AdminUsersView = () => {
   const { users } = useSelector((state) => state.userAdmin);
+  const [removeUsers, setRemoveUsers] = useState([]);
+  const { toast } = useToast();
   const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    toast({
+      title: "Users Deleted",
+    });
+  };
 
   useEffect(() => {
     dispatch(fetchAllUsers());
   }, [dispatch]);
+
+  // for delete Users
+  useEffect(() => {
+    if (Array.isArray(users)) {
+      const deleteId = JSON.parse(localStorage.getItem("deleteUsers") || "[]");
+      const remainingUsers = users.filter(
+        (user) => !deleteId.includes(user?._id)
+      );
+      setRemoveUsers(remainingUsers);
+    }
+  }, [users]);
+
+  const deleteUsers = (id) => {
+    // 1. Update localStorage
+    const deletedId = JSON.parse(localStorage.getItem("deleteUsers") || "[]");
+    if (!deletedId.includes(id)) {
+      deletedId.push(id);
+      localStorage.setItem("deleteUsers", JSON.stringify(deletedId));
+    }
+
+    // 2. Update local state
+    setRemoveUsers((prev) => prev.filter((user) => user._id !== id));
+  };
 
   return (
     <Card>
@@ -44,9 +77,9 @@ const AdminUsersView = () => {
           </TableHeader>
 
           <TableBody>
-            {Array.isArray(users) && users.length > 0 ? (
-              users.map((user, index) => (
-                <TableRow key={index}>
+            {Array.isArray(removeUsers) && removeUsers.length > 0 ? (
+              removeUsers.map((user, index) => (
+                <TableRow key={user?._id}>
                   <TableCell>{index + 1}</TableCell>
                   <TableCell>{user?.userName || "No Name"}</TableCell>
                   <TableCell>{user?.email || "No Email"}</TableCell>
@@ -65,6 +98,14 @@ const AdminUsersView = () => {
                       : "N/A"}{" "}
                   </TableCell>
                   <TableCell>{user?._id || "No Id"}</TableCell>
+                  <TableCell
+                    className="cursor-pointer"
+                    onClick={() => {
+                      handleDelete(), deleteUsers(user?._id);
+                    }}
+                  >
+                    <X />
+                  </TableCell>
                 </TableRow>
               ))
             ) : (
