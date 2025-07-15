@@ -12,44 +12,29 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllUsers } from "@/store/admin/users-slice";
 import { X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import axios from "axios";
 
 const AdminUsersView = () => {
   const { users } = useSelector((state) => state.userAdmin);
-  const [removeUsers, setRemoveUsers] = useState([]);
   const { toast } = useToast();
   const dispatch = useDispatch();
-
-  const handleDelete = () => {
-    toast({
-      title: "Users Deleted",
-    });
-  };
 
   useEffect(() => {
     dispatch(fetchAllUsers());
   }, [dispatch]);
 
-  // for delete Users
-  useEffect(() => {
-    if (Array.isArray(users)) {
-      const deleteId = JSON.parse(localStorage.getItem("deleteUsers") || "[]");
-      const remainingUsers = users.filter(
-        (user) => !deleteId.includes(user?._id)
+  // for deleted All users
+
+  const deleteUsers = async (id) => {
+    try {
+      const res = await axios.delete(
+        `https://zylomart-3bzq.onrender.com/api/admin/users/${id}`
       );
-      setRemoveUsers(remainingUsers);
+      toast({ title: res.data.message });
+      dispatch(fetchAllUsers());
+    } catch (error) {
+      toast({ title: "Deleted Failed", message: error.message });
     }
-  }, [users]);
-
-  const deleteUsers = (id) => {
-    // 1. Update localStorage
-    const deletedId = JSON.parse(localStorage.getItem("deleteUsers") || "[]");
-    if (!deletedId.includes(id)) {
-      deletedId.push(id);
-      localStorage.setItem("deleteUsers", JSON.stringify(deletedId));
-    }
-
-    // 2. Update local state
-    setRemoveUsers((prev) => prev.filter((user) => user._id !== id));
   };
 
   return (
@@ -77,8 +62,8 @@ const AdminUsersView = () => {
           </TableHeader>
 
           <TableBody>
-            {Array.isArray(removeUsers) && removeUsers.length > 0 ? (
-              removeUsers.map((user, index) => (
+            {Array.isArray(users) && users.length > 0 ? (
+              users.map((user, index) => (
                 <TableRow key={user?._id}>
                   <TableCell>{index + 1}</TableCell>
                   <TableCell>{user?.userName || "No Name"}</TableCell>
@@ -100,9 +85,7 @@ const AdminUsersView = () => {
                   <TableCell>{user?._id || "No Id"}</TableCell>
                   <TableCell
                     className="cursor-pointer"
-                    onClick={() => {
-                      handleDelete(), deleteUsers(user?._id);
-                    }}
+                    onClick={() => deleteUsers(user?._id)}
                   >
                     <X />
                   </TableCell>

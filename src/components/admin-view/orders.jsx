@@ -20,41 +20,12 @@ import {
 import { Badge } from "../ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { X } from "lucide-react";
+import axios from "axios";
 function AdminOrdersView() {
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
   const { orderList, orderDetails } = useSelector((state) => state.adminOrders);
-  const [removeOrders, setRemoveOrders] = useState([]);
   const { toast } = useToast();
   const dispatch = useDispatch();
-
-  const handleDelete = () => {
-    toast({
-      title: "Orders Deleted",
-    });
-  };
-
-  // for delete Orders
-  useEffect(() => {
-    if (Array.isArray(orderList)) {
-      const deleteId = JSON.parse(localStorage.getItem("deleteOrders") || "[]");
-      const remainingOrders = orderList.filter(
-        (order) => !deleteId.includes(order?._id)
-      );
-      setRemoveOrders(remainingOrders);
-    }
-  }, [orderList]);
-
-  const deleteOrders = (id) => {
-    // 1. Update localStorage
-    const deletedId = JSON.parse(localStorage.getItem("deleteOrders") || "[]");
-    if (!deletedId.includes(id)) {
-      deletedId.push(id);
-      localStorage.setItem("deleteOrders", JSON.stringify(deletedId));
-    }
-
-    // 2. Update local state
-    setRemoveOrders((prev) => prev.filter((order) => order._id !== id));
-  };
 
   useEffect(() => {
     dispatch(getAllOrdersForAdmin());
@@ -71,6 +42,20 @@ function AdminOrdersView() {
   useEffect(() => {
     if (orderDetails !== null) setOpenDetailsDialog(true);
   }, [orderDetails]);
+
+  // for delete All Orders
+
+  const deletedAllOrders = async (id) => {
+    try {
+      const res = await axios.delete(
+        `https://zylomart-3bzq.onrender.com/api/admin/orders/${id}`
+      );
+      toast({ title: res.data.message });
+      dispatch(getAllOrdersForAdmin());
+    } catch (error) {
+      toast({ title: "Deleted Failed", message: error.message });
+    }
+  };
 
   return (
     <>
@@ -96,8 +81,8 @@ function AdminOrdersView() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {Array.isArray(removeOrders) && removeOrders.length > 0 ? (
-                removeOrders.map((orderItem, index) => (
+              {Array.isArray(orderList) && orderList.length > 0 ? (
+                orderList.map((orderItem, index) => (
                   <TableRow>
                     <TableCell>{index + 1}</TableCell>
                     <TableCell>{orderItem?._id}</TableCell>
@@ -141,9 +126,7 @@ function AdminOrdersView() {
 
                     <TableCell
                       className="cursor-pointer"
-                      onClick={() => {
-                        handleDelete(), deleteOrders(orderItem?._id);
-                      }}
+                      onClick={() => deletedAllOrders(orderItem?._id)}
                     >
                       <X />
                     </TableCell>
