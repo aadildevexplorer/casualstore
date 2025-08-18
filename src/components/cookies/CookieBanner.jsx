@@ -10,21 +10,24 @@ export default function CookieBanner() {
   }, []);
 
   useEffect(() => {
-    const consent = localStorage.getItem("cookieConsent");
+    const consent =
+      localStorage.getItem("cookieConsent") ||
+      document.cookie.includes("cookieConsent");
     if (!consent) {
       setTimeout(() => {
         setShow(true);
-      }, 5000); // reduced to 5s for better UX
+      }, 5000);
     }
   }, []);
-
+  // consent ek flag h
+  // setConsent cookie ki value h
   const setConsent = async (type) => {
     localStorage.setItem("cookieConsent", type);
     document.cookie = `cookieConsent=${type}; path=/; max-age=${
-      60 * 60 * 24 * 30
+      60 * 60 * 24 * 365 * 20
     }`;
     try {
-      await fetch("https://zylomart-3bzq.onrender.com/set-consent", {
+      await fetch("https://zylomart-3bzq.onrender.com/api/cookie/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ consent: type }),
@@ -35,15 +38,15 @@ export default function CookieBanner() {
     setShow(false);
   };
 
-  //   for reset cookie
-  //   const resetConsent = () => {
-  //     localStorage.removeItem("cookieConsent"); // purana consent delete
-  //     document.cookie = "cookieConsent=; path=/; max-age=0"; // cookie bhi clear
-  //     setShow(true); // banner phir se show karo
-  //   };
-  //   useEffect(() => {
-  //     resetConsent();
-  //   }, []);
+  // for reset cookie
+  // const resetConsent = () => {
+  //   localStorage.removeItem("cookieConsent"); // purana consent delete
+  //   document.cookie = "cookieConsent=; path=/; max-age=0"; // cookie bhi clear
+  //   setShow(true); // banner phir se show karo
+  // };
+  // useEffect(() => {
+  //   resetConsent();
+  // }, []);
 
   if (!show) return null;
 
@@ -86,14 +89,6 @@ export default function CookieBanner() {
             Only Essential
           </button>
         </div>
-
-        {/* Close button */}
-        {/* <button
-          onClick={resetConsent}
-          className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-xl font-bold"
-        >
-          ✕
-        </button> */}
       </div>
     </div>
   );

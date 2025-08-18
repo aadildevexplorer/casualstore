@@ -28,6 +28,7 @@ import Footer from "./Pages/shopping-view/footer";
 import { QueryClientProvider } from "@tanstack/react-query";
 import queryClient from "./query-client";
 import CookieBanner from "./components/cookies/CookieBanner";
+import AdminCookie from "./components/admin-view/cookies";
 
 const App = () => {
   const { user, isAuthenticated, isLoading } = useSelector(
@@ -76,6 +77,7 @@ const App = () => {
             <Route path="orders" element={<AdminOrders />} />
             <Route path="users" element={<AdminUsers />} />
             <Route path="features" element={<AdminFeatures />} />
+            <Route path="cookies" element={<AdminCookie />} />
           </Route>
 
           {/* Shopping routes */}

@@ -1,6 +1,7 @@
 import {
   BadgeCheck,
   ChartNoAxesCombined,
+  Cookie,
   LayoutDashboard,
   ShoppingBasket,
   UserPlus,
@@ -33,6 +34,13 @@ const adminSidebarMenuItems = [
     label: "Users",
     path: "/admin/Users",
     icon: <UserPlus />,
+  },
+
+  {
+    id: "cookies",
+    label: "Cookies",
+    path: "/admin/cookies",
+    icon: <Cookie />,
   },
 ];
 
