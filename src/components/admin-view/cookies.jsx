@@ -12,6 +12,7 @@ import {
   TableRow,
 } from "../ui/table";
 import { X } from "lucide-react";
+import ButtonCSV from "../common/CSV/Data";
 
 export default function AdminCookie() {
   // API call
@@ -30,9 +31,15 @@ export default function AdminCookie() {
 
   return (
     <Card>
-      <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between">
         <CardHeader>
           <CardTitle>All Cookies</CardTitle>
+        </CardHeader>
+
+        <CardHeader>
+          <CardTitle>
+            <ButtonCSV data={data} type="cookies" />
+          </CardTitle>
         </CardHeader>
       </div>
       <CardContent>
@@ -67,7 +74,7 @@ export default function AdminCookie() {
                     {cookie.consent || "N/A"}
                   </TableCell>
                   <TableCell>{cookie.ip || "N/A"}</TableCell>
-                  <TableCell className="truncate max-w-xs">
+                  <TableCell className="max-w-xs truncate">
                     {cookie.userAgent.slice(0, 10) || "N/A"}
                   </TableCell>
                   <TableCell>

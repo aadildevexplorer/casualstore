@@ -13,6 +13,7 @@ import { fetchAllUsers } from "@/store/admin/users-slice";
 import { X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import axios from "axios";
+import ButtonCSV from "../common/CSV/Data";
 
 const AdminUsersView = () => {
   const { users } = useSelector((state) => state.userAdmin);
@@ -24,7 +25,6 @@ const AdminUsersView = () => {
   }, [dispatch]);
 
   // for deleted All users
-
   const deleteUsers = async (id) => {
     try {
       const res = await axios.delete(
@@ -43,7 +43,14 @@ const AdminUsersView = () => {
         <CardHeader>
           <CardTitle>All Users</CardTitle>
         </CardHeader>
+
+        <CardHeader>
+          <CardTitle>
+            <ButtonCSV data={users} type="users" />
+          </CardTitle>
+        </CardHeader>
       </div>
+
       <CardContent>
         <Table>
           <TableHeader>
@@ -158,7 +165,7 @@ export default AdminUsersView;
 //         <CardHeader>
 //           <CardTitle>All Users</CardTitle>
 //         </CardHeader>
-//         <div className="mr-6 mt-4">
+//         <div className="mt-4 mr-6">
 //           {/* <TableIcon className="w-6 h-6" /> */}
 //         </div>
 //       </div>
@@ -208,7 +215,7 @@ export default AdminUsersView;
 //                     </TableCell>
 //                     <TableCell>{user?._id || "No Id"}</TableCell>
 //                     <TableCell
-//                       className="cursor-pointer text-red-500"
+//                       className="text-red-500 cursor-pointer"
 //                       onClick={() => deleteUsers(user?._id)}
 //                     >
 //                       <X />

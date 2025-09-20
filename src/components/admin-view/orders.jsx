@@ -21,11 +21,14 @@ import { Badge } from "../ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { X } from "lucide-react";
 import axios from "axios";
+import ButtonCSV from "../common/CSV/Data";
+
 function AdminOrdersView() {
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
   const { orderList, orderDetails } = useSelector((state) => state.adminOrders);
   const { toast } = useToast();
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     dispatch(getAllOrdersForAdmin());
@@ -44,7 +47,6 @@ function AdminOrdersView() {
   }, [orderDetails]);
 
   // for delete All Orders
-
   const deletedAllOrders = async (id) => {
     try {
       const res = await axios.delete(
@@ -63,6 +65,12 @@ function AdminOrdersView() {
         <div className="flex items-center justify-between">
           <CardHeader>
             <CardTitle>All Orders</CardTitle>
+          </CardHeader>
+
+          <CardHeader>
+            <CardTitle>
+              <ButtonCSV data={orderList} type="orders" />
+            </CardTitle>
           </CardHeader>
         </div>
         <CardContent>
@@ -211,7 +219,7 @@ export default AdminOrdersView;
 
 //   if (isLoading) {
 //     return (
-//       <div className="text-center py-6 text-lg font-medium text-gray-600">
+//       <div className="py-6 text-lg font-medium text-center text-gray-600">
 //         Loading orders...
 //       </div>
 //     );
@@ -219,7 +227,7 @@ export default AdminOrdersView;
 
 //   if (isError) {
 //     return (
-//       <div className="text-center py-6 text-red-600 font-medium">
+//       <div className="py-6 font-medium text-center text-red-600">
 //         Failed to fetch orders.
 //       </div>
 //     );
@@ -288,7 +296,7 @@ export default AdminOrdersView;
 //                     </Dialog>
 //                   </TableCell>
 //                   <TableCell
-//                     className="cursor-pointer text-red-600"
+//                     className="text-red-600 cursor-pointer"
 //                     onClick={() => deletedAllOrders(orderItem?._id)}
 //                   >
 //                     <X />

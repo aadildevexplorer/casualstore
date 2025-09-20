@@ -15,7 +15,7 @@ export const fetchAllUsers = createAsyncThunk(
       const response = await axios.get(
         "https://zylomart-3bzq.onrender.com/api/admin/users/get"
       );
-      return response.data; // Assuming the response contains { users: [...] }
+      return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || "Failed to fetch users");
     }
