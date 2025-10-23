@@ -48,7 +48,7 @@
 
 //   return (
 //     <>
-//       <div className="flex lg:items-center lg:flex-row flex-col gap-4">
+//       <div className="flex flex-col gap-4 lg:items-center lg:flex-row">
 //         <Sheet
 //           open={openCartSheet}
 //           onOpenChange={() => setOpenCartSheet(false)}
@@ -78,7 +78,7 @@
 //         <DropdownMenu>
 //           <DropdownMenuTrigger asChild>
 //             <Avatar className="bg-black cursor-pointer">
-//               <AvatarFallback className="bg-black text-white font-extrabold">
+//               <AvatarFallback className="font-extrabold text-white bg-black">
 //                 {/* {user?.userName[0]?.toUpperCase()} */}
 //                 <CircleUser />
 //               </AvatarFallback>
@@ -91,12 +91,12 @@
 //               className="cursor-pointer"
 //               onClick={() => navigate("/shop/account")}
 //             >
-//               <UserCog className="mr-2 h-4 w-4" />
+//               <UserCog className="w-4 h-4 mr-2" />
 //               Account
 //             </DropdownMenuItem>
 //             <DropdownMenuSeparator />
 //             <DropdownMenuItem onClick={handleLogOut} className="cursor-pointer">
-//               <LogOut className="mr-2 h-4 w-4" />
+//               <LogOut className="w-4 h-4 mr-2" />
 //               Logout
 //             </DropdownMenuItem>
 //           </DropdownMenuContent>
@@ -131,7 +131,7 @@
 //   };
 //   return (
 //     <>
-//       <nav className="flex flex-col mb-3 lg:mb-0 lg:items-center gap-6 lg:flex-row">
+//       <nav className="flex flex-col gap-6 mb-3 lg:mb-0 lg:items-center lg:flex-row">
 //         {ShoppingViewHeaderMenuItems.map((menuItem) => (
 //           <Label
 //             onClick={() => handleNavigate(menuItem)}
@@ -151,16 +151,16 @@
 
 //   return (
 //     <>
-//       <header className="sticky top-0 w-full border-b bg-background z-40">
-//         <div className="flex h-16 items-center justify-between px-4 md:px-6">
+//       <header className="sticky top-0 z-40 w-full border-b bg-background">
+//         <div className="flex items-center justify-between h-16 px-4 md:px-6">
 //           <Link to="/shop/home" className="flex items-center gap-2">
-//             <HousePlug className="h-6 w-6" />
+//             <HousePlug className="w-6 h-6" />
 //             <span className="font-bold">Ecommerce</span>
 //           </Link>
 //           <Sheet>
 //             <SheetTrigger asChild>
 //               <Button variant="outline" size="icon" className="lg:hidden ">
-//                 <Menu className="h-6 w-6" />
+//                 <Menu className="w-6 h-6" />
 //                 <span className="sr-only">Toggle header menu</span>
 //               </Button>
 //             </SheetTrigger>
@@ -242,7 +242,8 @@ function HeaderRightContent() {
 
   return (
     <>
-      <div className="flex lg:items-center lg:flex-row flex-col gap-4">
+      <div className="flex flex-col gap-4 lg:items-center lg:flex-row">
+
         <Sheet
           open={openCartSheet}
           onOpenChange={() => setOpenCartSheet(false)}
@@ -255,7 +256,7 @@ function HeaderRightContent() {
           >
             <div>
               <ShoppingCart className="w-6 h-6" />
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+              <span className="absolute flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full -top-2 -right-2">
                 {cartItems?.items?.length || 0}
               </span>
               <span className="sr-only">User Cart</span>
@@ -274,7 +275,7 @@ function HeaderRightContent() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Avatar className="bg-black cursor-pointer">
-                <AvatarFallback className="bg-black text-white font-extrabold">
+                <AvatarFallback className="font-extrabold text-white bg-black">
                   <CircleUser />
                 </AvatarFallback>{" "}
               </Avatar>
@@ -286,7 +287,7 @@ function HeaderRightContent() {
                 className="cursor-pointer"
                 onClick={() => navigate("/shop/account")}
               >
-                <UserCog className="mr-2 h-4 w-4" />
+                <UserCog className="w-4 h-4 mr-2" />
                 Account
               </DropdownMenuItem>
               <DropdownMenuSeparator />
@@ -294,7 +295,7 @@ function HeaderRightContent() {
                 onClick={handleLogOut}
                 className="cursor-pointer"
               >
-                <LogOut className="mr-2 h-4 w-4" />
+                <LogOut className="w-4 h-4 mr-2" />
                 Logout
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -303,7 +304,7 @@ function HeaderRightContent() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Avatar className="bg-black cursor-pointer">
-                <AvatarFallback className="bg-black text-white font-extrabold">
+                <AvatarFallback className="font-extrabold text-white bg-black">
                   <CircleUser />
                 </AvatarFallback>
               </Avatar>
@@ -315,13 +316,13 @@ function HeaderRightContent() {
                 className="cursor-pointer"
                 onClick={() => navigate("/shop/account")}
               >
-                <UserCog className="mr-2 h-4 w-4" />
+                <UserCog className="w-4 h-4 mr-2" />
                 Account
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <Link to="/auth/login">
                 <DropdownMenuItem className="cursor-pointer">
-                  <CircleUser className="mr-2 h-4 w-4" />
+                  <CircleUser className="w-4 h-4 mr-2" />
                   Login
                 </DropdownMenuItem>
               </Link>
@@ -358,7 +359,7 @@ function MenuItems() {
   };
   return (
     <>
-      <nav className="flex flex-col mb-3 lg:mb-0 lg:items-center gap-6 lg:flex-row">
+      <nav className="flex flex-col gap-6 mb-3 lg:mb-0 lg:items-center lg:flex-row">
         {ShoppingViewHeaderMenuItems.map((menuItem) => (
           <Label
             onClick={() => handleNavigate(menuItem)}
@@ -378,34 +379,36 @@ function ShoppingHeader() {
 
   return (
     <>
-      <header className="sticky top-0 w-full border-b bg-background z-40">
-        <div className="flex h-16 items-center justify-between px-4 md:px-6">
-          <Link to="/shop/home" className="flex items-center gap-2">
-            <HousePlug className="h-6 w-6" />
-            <span className="font-bold"> Casual-Store</span>
-          </Link>
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="lg:hidden ">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle header menu</span>
-              </Button>
-            </SheetTrigger>
+      <div className="pt-12">
+        <header className="fixed top-0 left-0 z-40 w-full backdrop-blur-md">
+          <div className="flex items-center justify-between h-16 px-4 md:px-6">
+            <Link to="/shop/home" className="flex items-center gap-2">
+              <HousePlug className="w-6 h-6" />
+              <span className="font-bold"> Casual-Store</span>
+            </Link>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="icon" className="lg:hidden">
+                  <Menu className="w-6 h-6" />
+                  <span className="sr-only">Toggle header menu</span>
+                </Button>
+              </SheetTrigger>
 
-            <SheetContent side="left" className="w-full max-w-xs">
+              <SheetContent side="left" className="w-full max-w-xs">
+                <MenuItems />
+                <HeaderRightContent />{" "}
+              </SheetContent>
+            </Sheet>
+
+            <div className="hidden lg:block">
               <MenuItems />
+            </div>
+            <div className="hidden lg:block">
               <HeaderRightContent />{" "}
-            </SheetContent>
-          </Sheet>
-
-          <div className="hidden lg:block">
-            <MenuItems />
+            </div>
           </div>
-          <div className="hidden lg:block">
-            <HeaderRightContent />{" "}
-          </div>
-        </div>
-      </header>
+        </header>
+      </div>
     </>
   );
 }
