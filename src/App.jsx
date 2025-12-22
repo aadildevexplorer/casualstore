@@ -78,8 +78,15 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Suspense fallback={<Skeleton className="w-full h-screen" />}>
-        <div className="flex flex-col overflow-hidden bg-white">
+  <Suspense
+        fallback={
+          <div className="fixed inset-0 flex items-center justify-center loader">
+            <svg className="spinner" viewBox="25 25 50 50">
+              <circle className="path" cx="50" cy="50" r="20"></circle>
+            </svg>
+          </div>
+        }
+      >        <div className="flex flex-col overflow-hidden bg-white">
           <Routes>
             <Route path="/" element={<Navigate to="/shop/home" replace />} />
 
