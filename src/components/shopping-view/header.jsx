@@ -363,7 +363,7 @@ function MenuItems() {
         {ShoppingViewHeaderMenuItems.map((menuItem) => (
           <Label
             onClick={() => handleNavigate(menuItem)}
-            className="text-sm font-medium cursor-pointer"
+            className="text-md font-medium cursor-pointer"
             key={menuItem.id}
           >
             {menuItem.label}
