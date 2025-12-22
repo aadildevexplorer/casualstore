@@ -25,15 +25,15 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-50 dark:bg-gray-950 text-gray-700 dark:text-gray-300 border-t border-gray-200 dark:border-gray-800 ">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+    <footer className="text-gray-700 border-t border-gray-200 bg-gray-50 dark:bg-gray-950 dark:text-gray-300 dark:border-gray-800">
+      <div className="px-6 py-16 mx-auto max-w-7xl">
         {/* Top Section: Newsletter + Socials */}
-        <div className="grid md:grid-cols-2 gap-10 mb-16">
+        <div className="grid gap-10 mb-16 md:grid-cols-2">
           <div>
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
               Casual-Store
             </h2>
-            <p className="mt-2 text-sm text-black dark:text-gray-400 leading-relaxed">
+            <p className="mt-2 text-sm leading-relaxed text-black dark:text-gray-400">
               Shop smarter with Casual-Store premium products, unbeatable prices,
               fast delivery, and 24/7 support. Discover what you love,
               effortlessly.
@@ -43,7 +43,7 @@ export default function Footer() {
           <div>
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col sm:flex-row items-center gap-4"
+              className="flex flex-col items-center gap-4 sm:flex-row"
             >
               <input
                 required
@@ -51,11 +51,11 @@ export default function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-900 focus:outline-none"
+                className="w-full px-4 py-2 bg-white border border-gray-300 rounded-md dark:border-gray-700 dark:bg-gray-900 focus:outline-none"
               />
               <button
                 type="submit"
-                className="px-6 sm:w-auto w-full py-2 bg-black text-white dark:bg-white dark:text-black rounded-md hover:opacity-90"
+                className="w-full px-6 py-2 text-white bg-black rounded-md sm:w-auto dark:bg-white dark:text-black hover:opacity-90"
               >
                 Subscribe
               </button>
@@ -66,9 +66,9 @@ export default function Footer() {
         </div>
 
         {/* Middle Section: Links */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 text-sm">
+        <div className="grid grid-cols-2 gap-8 text-sm sm:grid-cols-3 md:grid-cols-4">
           <div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+            <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
               SHOP
             </h3>
             <ul className="space-y-2">
@@ -116,7 +116,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-4 text-xl">
+            <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
               SUPPORT
             </h3>
             <ul className="space-y-2">
@@ -157,12 +157,12 @@ export default function Footer() {
 
           {/* Replaced Support with Follow Us On */}
           <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-4 text-xl">
+            <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
               FOLLOW ME
             </h3>
             <div className="flex gap-4">
               <a
-                href="https://github.com/aadilllkkkhhhaaannn"
+                href="https://github.com/aadildevexplorer"
                 className="text-black dark:text-gray-300 hover:underline"
               >
                 <Github className="w-5 h-5 hover:text-blue-600" />
@@ -184,7 +184,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-xl text-gray-900 dark:text-white mb-4">
+            <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
               CONTACT ME
             </h3>
             <ul className="space-y-2">
@@ -192,7 +192,7 @@ export default function Footer() {
                 Call:{" "}
                 <a
                   href="tel:+919826046890"
-                  className="text-black  dark:text-gray-300 hover:underline"
+                  className="text-black dark:text-gray-300 hover:underline"
                 >
                   98260-46890
                 </a>
@@ -211,15 +211,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-12 border-t border-gray-200 dark:border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-black dark:text-gray-400 gap-4">
+        <div className="flex flex-col items-center justify-between gap-4 pt-6 mt-12 text-xs text-black border-t border-gray-200 dark:border-gray-800 sm:flex-row dark:text-gray-400">
           <div>
             © {new Date().getFullYear()} Casual-Store Inc. All rights reserved.
-            <p className="text-sm mt-3 flex items-center justify-center">
+            <p className="flex items-center justify-center mt-3 text-sm">
               Powered by{" "}
               <a
                 href="https://aadilkhan.vercel.app/"
                 target="_blank"
-                className="ml-1 bg-primary p-1 text-white rounded-md"
+                className="p-1 ml-1 text-white rounded-md bg-primary"
               >
                 Aadil Khan
               </a>

@@ -80,7 +80,7 @@
   background-color: black;
   color: white;
 }
-
+/* 
 .spinner svg {
   width: 50px;
   transform-origin: center;
@@ -137,5 +137,40 @@
 
   100% {
     stroke-dashoffset: -125px;
+  }
+} */
+
+.spinner {
+  width: 20px;     /* desktop pe normal size */
+  height: 20px;
+  animation: rotate 2s linear infinite;
+}
+
+.path {
+  stroke: #000;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+  fill: none;
+  stroke-width: 4;   /* yahi control karta hai thickness */
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -125;
   }
 }

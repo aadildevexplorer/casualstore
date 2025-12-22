@@ -30,82 +30,87 @@ export default function AdminCookie() {
   if (isError) return <p className="p-4 text-red-500">{error.message}</p>;
 
   return (
-    <Card>
-          <div className="flex items-center justify-between">
-        <CardHeader>
-          <CardTitle>All Cookies</CardTitle>
-        </CardHeader>
+    <>
+      <Card>
+        <div className="flex items-center justify-between">
+          <CardHeader>
+            <CardTitle>All Cookies</CardTitle>
+          </CardHeader>
 
-        <CardHeader>
-          <CardTitle>
-            <ButtonCSV data={data} type="cookies" />
-          </CardTitle>
-        </CardHeader>
-      </div>
-      <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>S.No</TableHead>
-              <TableHead>Consent</TableHead>
-              <TableHead>IP</TableHead>
-              <TableHead>User Agent</TableHead>
-              <TableHead>Date</TableHead>
-              <TableHead>Time</TableHead>
-              <TableHead>Cookie Id</TableHead>
-              <TableHead>
-                <span className="sr-only">Actions</span>
-              </TableHead>
-            </TableRow>
-          </TableHeader>
+          <CardHeader>
+            <CardTitle>
+              <ButtonCSV data={data} type="cookies" />
+            </CardTitle>
+          </CardHeader>
+        </div>
+        <CardContent>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>S.No</TableHead>
+                <TableHead>Consent</TableHead>
+                <TableHead>IP</TableHead>
+                <TableHead>User Agent</TableHead>
+                <TableHead>Date</TableHead>
+                <TableHead>Time</TableHead>
+                <TableHead>Cookie Id</TableHead>
+                <TableHead>
+                  <span className="sr-only">Actions</span>
+                </TableHead>
+              </TableRow>
+            </TableHeader>
 
-          <TableBody>
-            {data && data.length > 0 ? (
-              data.map((cookie, idx) => (
-                <TableRow key={cookie._id}>
-                  <TableCell>{idx + 1}</TableCell>
-                  <TableCell
-                    className={`font-medium ${
-                      cookie.consent === "all"
-                        ? "text-green-600"
-                        : "text-red-500"
-                    }`}
-                  >
-                    {cookie.consent || "N/A"}
-                  </TableCell>
-                  <TableCell>{cookie.ip || "N/A"}</TableCell>
-                  <TableCell className="max-w-xs truncate">
-                    {cookie.userAgent.slice(0, 10) || "N/A"}
-                  </TableCell>
-                  <TableCell>
-                    {cookie.createdAt
-                      ? new Date(cookie.createdAt).toLocaleDateString()
-                      : "--"}
-                  </TableCell>
-                  <TableCell>
-                    {cookie.createdAt
-                      ? new Date(cookie.createdAt).toLocaleTimeString("en-IN", {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })
-                      : "N/A"}
-                  </TableCell>
-                  <TableCell>{cookie._id || "No Id"}</TableCell>
-                  <TableCell className="cursor-pointer">
-                    <X />
+            <TableBody>
+              {data && data.length > 0 ? (
+                data.map((cookie, idx) => (
+                  <TableRow key={cookie._id}>
+                    <TableCell>{idx + 1}</TableCell>
+                    <TableCell
+                      className={`font-medium ${
+                        cookie.consent === "all"
+                          ? "text-green-600"
+                          : "text-red-500"
+                      }`}
+                    >
+                      {cookie.consent || "N/A"}
+                    </TableCell>
+                    <TableCell>{cookie.ip || "N/A"}</TableCell>
+                    <TableCell className="max-w-xs truncate">
+                      {cookie.userAgent.slice(0, 10) || "N/A"}
+                    </TableCell>
+                    <TableCell>
+                      {cookie.createdAt
+                        ? new Date(cookie.createdAt).toLocaleDateString()
+                        : "--"}
+                    </TableCell>
+                    <TableCell>
+                      {cookie.createdAt
+                        ? new Date(cookie.createdAt).toLocaleTimeString(
+                            "en-IN",
+                            {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            }
+                          )
+                        : "N/A"}
+                    </TableCell>
+                    <TableCell>{cookie._id || "No Id"}</TableCell>
+                    <TableCell className="cursor-pointer">
+                      <X />
+                    </TableCell>
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell colSpan={8} className="text-center">
+                    No cookies found
                   </TableCell>
                 </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell colSpan={8} className="text-center">
-                  No cookies found
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </CardContent>
-    </Card>
+              )}
+            </TableBody>
+          </Table>
+        </CardContent>
+      </Card>
+    </>
   );
 }

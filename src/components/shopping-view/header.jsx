@@ -159,7 +159,7 @@
 //           </Link>
 //           <Sheet>
 //             <SheetTrigger asChild>
-//               <Button variant="outline" size="icon" className="lg:hidden ">
+//               <Button variant="outline" size="icon" className="lg:hidden">
 //                 <Menu className="w-6 h-6" />
 //                 <span className="sr-only">Toggle header menu</span>
 //               </Button>
@@ -363,7 +363,7 @@ function MenuItems() {
         {ShoppingViewHeaderMenuItems.map((menuItem) => (
           <Label
             onClick={() => handleNavigate(menuItem)}
-            className="text-md font-medium cursor-pointer"
+            className="font-medium cursor-pointer text-md"
             key={menuItem.id}
           >
             {menuItem.label}

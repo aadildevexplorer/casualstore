@@ -1,110 +1,3 @@
-// import React, { useEffect } from "react";
-// import { Navigate, Route, Routes } from "react-router-dom";
-// import AuthLayout from "./components/auth/layout";
-// import AuthLogin from "./Pages/auth/login";
-// import AuthRegister from "./Pages/auth/register";
-// import AdminLayout from "./components/admin-view/layout";
-// import AdminDashboard from "./Pages/admin-view/dashboard";
-// import AdminFeatures from "./Pages/admin-view/features";
-// import AdminOrders from "./Pages/admin-view/orders";
-// import AdminProducts from "./Pages/admin-view/products";
-// import NotFound from "./Pages/not-found";
-// import ShoppingAccount from "./Pages/shopping-view/account";
-// import ShoppingCheckout from "./Pages/shopping-view/checkout";
-// import ShoppingHome from "./Pages/shopping-view/home";
-// import ShoppingListing from "./Pages/shopping-view/listing";
-// import ShoppingLayout from "./components/shopping-view/layout";
-// import CheckAuth from "./components/common/check-auth";
-// import UnauthPage from "./Pages/unauth-page";
-// import { useDispatch, useSelector } from "react-redux";
-// import { checkAuth } from "./store/auth-slice";
-// import { Skeleton } from "@/components/ui/skeleton";
-// import AdminUsers from "./Pages/admin-view/users";
-// import PaypalReturnPage from "./Pages/shopping-view/paypal-return";
-// import PaymentSuccessPage from "./Pages/shopping-view/payment-success";
-// import SearchProducts from "./Pages/shopping-view/search";
-// import Footer from "./Pages/shopping-view/footer";
-
-// import { QueryClientProvider } from "@tanstack/react-query";
-// import queryClient from "./query-client";
-// import CookieBanner from "./components/cookies/CookieBanner";
-// import AdminCookie from "./components/admin-view/cookies";
-
-// const App = () => {
-//   const { user, isAuthenticated, isLoading } = useSelector(
-//     (state) => state.auth
-//   );
-//   const dispatch = useDispatch();
-
-//   useEffect(() => {
-//     dispatch(checkAuth());
-//   }, [dispatch]);
-
-//   if (isLoading) {
-//     return <Skeleton className="w-[800] bg-black h-[640px]" />;
-//   }
-
-//   return (
-//     <QueryClientProvider client={queryClient}>
-//       <div className="flex flex-col overflow-hidden bg-white">
-//         <Routes>
-//           <Route path="/" element={<Navigate to="/shop/home" replace />} />
-
-//           {/* Auth routes */}
-//           <Route
-//             path="/auth"
-//             element={
-//               <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-//                 <AuthLayout />
-//               </CheckAuth>
-//             }
-//           >
-//             <Route path="login" element={<AuthLogin />} />
-//             <Route path="register" element={<AuthRegister />} />
-//           </Route>
-
-//           {/* Admin routes */}
-//           <Route
-//             path="/admin"
-//             element={
-//               <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-//                 <AdminLayout />
-//               </CheckAuth>
-//             }
-//           >
-//             <Route path="dashboard" element={<AdminDashboard />} />
-//             <Route path="products" element={<AdminProducts />} />
-//             <Route path="orders" element={<AdminOrders />} />
-//             <Route path="users" element={<AdminUsers />} />
-//             <Route path="features" element={<AdminFeatures />} />
-//             <Route path="cookies" element={<AdminCookie />} />
-//           </Route>
-
-//           {/* Shopping routes */}
-//           <Route path="/shop" element={<ShoppingLayout />}>
-//             <Route path="account" element={<ShoppingAccount />} />
-//             <Route path="checkout" element={<ShoppingCheckout />} />
-//             <Route path="home" element={<ShoppingHome />} />
-//             <Route path="listing" element={<ShoppingListing />} />
-//             <Route path="paypal-return" element={<PaypalReturnPage />} />
-//             <Route path="payment-success" element={<PaymentSuccessPage />} />
-//             <Route path="search" element={<SearchProducts />} />
-//           </Route>
-
-//           <Route path="/unauth-page" element={<UnauthPage />} />
-//           <Route path="*" element={<NotFound />} />
-//         </Routes>
-//         <CookieBanner />
-//         <Footer />
-//       </div>
-//     </QueryClientProvider>
-//   );
-// };
-
-// export default App;
-
-
-
 import React, { useEffect, lazy, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -173,7 +66,14 @@ const App = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return <Skeleton className="w-full h-screen" />;
+    // return <Skeleton className="w-full h-screen" />;
+    return (
+      <div className="fixed inset-0 flex items-center justify-center loader">
+        <svg className="spinner" viewBox="25 25 50 50">
+          <circle className="path" cx="50" cy="50" r="20"></circle>
+        </svg>
+      </div>
+    );
   }
 
   return (
