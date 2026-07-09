@@ -10,6 +10,7 @@ import CheckAuth from "./components/common/check-auth";
 import CookieBanner from "./components/cookies/CookieBanner";
 import { Skeleton } from "@/components/ui/skeleton";
 
+import { useLocation } from "react-router-dom";
 /* =======================
    Lazy Loaded Layouts
 ======================= */
@@ -40,11 +41,11 @@ const ShoppingHome = lazy(() => import("./Pages/shopping-view/home"));
 const ShoppingListing = lazy(() => import("./Pages/shopping-view/listing"));
 const ShoppingAccount = lazy(() => import("./Pages/shopping-view/account"));
 const ShoppingCheckout = lazy(() => import("./Pages/shopping-view/checkout"));
-const PaypalReturnPage = lazy(() =>
-  import("./Pages/shopping-view/paypal-return")
+const PaypalReturnPage = lazy(
+  () => import("./Pages/shopping-view/paypal-return"),
 );
-const PaymentSuccessPage = lazy(() =>
-  import("./Pages/shopping-view/payment-success")
+const PaymentSuccessPage = lazy(
+  () => import("./Pages/shopping-view/payment-success"),
 );
 const SearchProducts = lazy(() => import("./Pages/shopping-view/search"));
 const Footer = lazy(() => import("./Pages/shopping-view/footer"));
@@ -56,8 +57,11 @@ const UnauthPage = lazy(() => import("./Pages/unauth-page"));
 const NotFound = lazy(() => import("./Pages/not-found"));
 
 const App = () => {
+  const location = useLocation();
+  const isShopPage = location.pathname.startsWith("/shop");
+
   const { user, isAuthenticated, isLoading } = useSelector(
-    (state) => state.auth
+    (state) => state.auth,
   );
   const dispatch = useDispatch();
 
@@ -78,7 +82,15 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Suspense fallback={<Skeleton className="w-full h-screen" />}>
+      <Suspense
+        fallback={
+          <div className="fixed inset-0 flex items-center justify-center loader">
+            <svg className="spinner" viewBox="25 25 50 50">
+              <circle className="path" cx="50" cy="50" r="20"></circle>
+            </svg>
+          </div>
+        }
+      >
         <div className="flex flex-col overflow-hidden bg-white">
           <Routes>
             <Route path="/" element={<Navigate to="/shop/home" replace />} />
@@ -127,9 +139,12 @@ const App = () => {
             <Route path="/unauth-page" element={<UnauthPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-
-          <CookieBanner />
-          <Footer />
+          {isShopPage && (
+            <>
+              <CookieBanner />
+              <Footer />
+            </>
+          )}
         </div>
       </Suspense>
     </QueryClientProvider>
