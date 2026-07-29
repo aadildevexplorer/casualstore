@@ -34,8 +34,8 @@ export default function Footer() {
               Casual-Store
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-black dark:text-gray-400">
-              Shop smarter with Casual-Store premium products, unbeatable prices,
-              fast delivery, and 24/7 support. Discover what you love,
+              Shop smarter with Casual-Store premium products, unbeatable
+              prices, fast delivery, and 24/7 support. Discover what you love,
               effortlessly.
             </p>
           </div>
@@ -221,31 +221,16 @@ export default function Footer() {
                 target="_blank"
                 className="p-1 ml-1 text-white rounded-md bg-primary"
               >
-                Aadil Khan
+                Mohammad Aadil
               </a>
             </p>
           </div>
           <div className="flex gap-4">
-            {/* <img
-              className="h-6"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1MUMXz1G7LSmOmsUgtpSVrB_aW4R79Lxv3g&s"
-              alt=""
-            /> */}
-            {/* <img
-              src="https://pngimg.com/d/mastercard_PNG16.png"
-              alt="MasterCard"
-              className="h-6"
-            /> */}
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLmCw9KwTMuJOlqCjSQ8StSY7qg0gMtohnqA&s"
               alt="PayPal"
               className="h-6"
             />
-            {/* <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5FNtLFxWODABAJtVR3ZVcsvU0mtsSIPFv5w&s"
-              alt="Apple Pay"
-              className="h-6"
-            /> */}
           </div>
         </div>
       </div>

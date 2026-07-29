@@ -116,3 +116,27 @@
   }
 }
 
+.chat-scroll::-webkit-scrollbar{
+    width:8px;
+}
+
+.chat-scroll::-webkit-scrollbar-track{
+    background:#090909;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb{
+    background:#2d2d2d;
+    border-radius:20px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb:hover{
+    background:#444;
+}
+
+.chat-scroll{
+    scrollbar-color:#2d2d2d #090909;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+}

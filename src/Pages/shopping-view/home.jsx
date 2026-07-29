@@ -220,12 +220,11 @@ function ShoppingHome() {
                   />
                 ))
               ) : (
-                // <div className="fixed inset-0 flex items-center justify-center loader">
-                //   <svg className="spinner" viewBox="25 25 50 50">
-                //     <circle className="path" cx="50" cy="50" r="20"></circle>
-                //   </svg>
-                // </div>
-                <div></div>
+                <div className="fixed inset-0 flex items-center justify-center loader">
+                  <svg className="spinner" viewBox="25 25 50 50">
+                    <circle className="path" cx="50" cy="50" r="20"></circle>
+                  </svg>
+                </div>
               )}
             </div>
           </div>
