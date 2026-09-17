@@ -27,7 +27,7 @@ export default function CookieBanner() {
       60 * 60 * 24 * 365 * 20
     }`;
     try {
-      await fetch("https://zylomart-3bzq.onrender.com/api/cookie/create", {
+      await fetch("zylomart-production.up.railway.app/api/cookie/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ consent: type }),

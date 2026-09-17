@@ -10,17 +10,17 @@ export const addReview = createAsyncThunk(
   "/order/addReview",
   async (formdata) => {
     const response = await axios.post(
-      `https://zylomart-3bzq.onrender.com/api/shop/review/add`,
-      formdata
+      `zylomart-production.up.railway.app/api/shop/review/add`,
+      formdata,
     );
 
     return response.data;
-  }
+  },
 );
 
 export const getReviews = createAsyncThunk("/order/getReviews", async (id) => {
   const response = await axios.get(
-    `https://zylomart-3bzq.onrender.com/api/shop/review/${id}`
+    `zylomart-production.up.railway.app/api/shop/review/${id}`,
   );
 
   return response.data;

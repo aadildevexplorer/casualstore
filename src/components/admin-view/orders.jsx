@@ -49,7 +49,7 @@ function AdminOrdersView() {
   const deletedAllOrders = async (id) => {
     try {
       const res = await axios.delete(
-        `https://zylomart-3bzq.onrender.com/api/admin/orders/${id}`
+        `zylomart-production.up.railway.app/api/admin/orders/${id}`,
       );
       toast({ title: res.data.message });
       dispatch(getAllOrdersForAdmin());
@@ -103,8 +103,8 @@ function AdminOrdersView() {
                             orderItem?.orderStatus === "confirmed"
                               ? "bg-green-500"
                               : orderItem?.orderStatus === "rejected"
-                              ? "bg-red-600"
-                              : "bg-black"
+                                ? "bg-red-600"
+                                : "bg-black"
                           }`}
                         >
                           {orderItem?.orderStatus}
@@ -211,7 +211,7 @@ export default AdminOrdersView;
 //   const deletedAllOrders = async (id) => {
 //     try {
 //       const res = await axios.delete(
-//         `https://zylomart-3bzq.onrender.com/api/admin/orders/${id}`
+//         `zylomart-production.up.railway.app/api/admin/orders/${id}`
 //       );
 //       toast({ title: res.data.message });
 //       refetchOrders();

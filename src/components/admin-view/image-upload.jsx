@@ -42,8 +42,8 @@ function ProductImageUpload({
     const data = new FormData();
     data.append("my_file", imageFile);
     const response = await axios.post(
-      "https://zylomart-3bzq.onrender.com/api/admin/products/upload-image",
-      data
+      "zylomart-production.up.railway.app/api/admin/products/upload-image",
+      data,
     );
     if (response.data.success) {
       setUploadImageUrl(response.data.result.url);

@@ -12,16 +12,16 @@ export const addToCart = createAsyncThunk(
   "cart/addToCart",
   async ({ userId, productId, quantity }) => {
     const response = await axios.post(
-      "https://zylomart-3bzq.onrender.com/api/shop/cart/add",
+      "zylomart-production.up.railway.app/api/shop/cart/add",
       {
         userId,
         productId,
         quantity,
-      }
+      },
     );
 
     return response.data;
-  }
+  },
 );
 
 // for fetch cart items
@@ -30,10 +30,10 @@ export const fetchCartItems = createAsyncThunk(
   "cart/fetchCartItems",
   async (userId) => {
     const response = await axios.get(
-      `https://zylomart-3bzq.onrender.com/api/shop/cart/get/${userId}`
+      `zylomart-production.up.railway.app/api/shop/cart/get/${userId}`,
     );
     return response.data;
-  }
+  },
 );
 
 // for delete items
@@ -42,10 +42,10 @@ export const deleteCartItem = createAsyncThunk(
   "cart/deleteCartItem",
   async ({ userId, productId }) => {
     const response = await axios.delete(
-      `https://zylomart-3bzq.onrender.com/api/shop/cart/${userId}/${productId}`
+      `zylomart-production.up.railway.app/api/shop/cart/${userId}/${productId}`,
     );
     return response.data;
-  }
+  },
 );
 
 // for update quantity
@@ -54,16 +54,16 @@ export const updateCartQuantity = createAsyncThunk(
   "cart/updateCartQuantity",
   async ({ userId, productId, quantity }) => {
     const response = await axios.put(
-      " https://zylomart-3bzq.onrender.com/api/shop/cart/update-cart",
+      " zylomart-production.up.railway.app/api/shop/cart/update-cart",
       {
         userId,
         productId,
         quantity,
-      }
+      },
     );
 
     return response.data;
-  }
+  },
 );
 
 const shoppingCartSlce = createSlice({

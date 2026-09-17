@@ -17,10 +17,10 @@ export const fetchAllFilteredProduct = createAsyncThunk(
     });
 
     const result = await axios.get(
-      `https://zylomart-3bzq.onrender.com/api/shop/products/get?${query}`
+      `zylomart-production.up.railway.app/api/shop/products/get?${query}`,
     );
     return result?.data;
-  }
+  },
 );
 
 // for filtered product-details
@@ -29,10 +29,10 @@ export const fetchProductDetails = createAsyncThunk(
   "/products/fetchProductDetails",
   async (id) => {
     const result = await axios.get(
-      `https://zylomart-3bzq.onrender.com/api/shop/products/get/${id}`
+      `zylomart-production.up.railway.app/api/shop/products/get/${id}`,
     );
     return result?.data;
-  }
+  },
 );
 
 const shoppingProductsSlice = createSlice({

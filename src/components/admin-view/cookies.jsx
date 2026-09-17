@@ -20,7 +20,7 @@ export default function AdminCookie() {
     queryKey: ["cookies"],
     queryFn: async () => {
       const res = await axios.get(
-        "https://zylomart-3bzq.onrender.com/api/admin/cookies/getCookie"
+        "zylomart-production.up.railway.app/api/admin/cookies/getCookie",
       );
       return res.data;
     },
@@ -90,7 +90,7 @@ export default function AdminCookie() {
                             {
                               hour: "2-digit",
                               minute: "2-digit",
-                            }
+                            },
                           )
                         : "N/A"}
                     </TableCell>

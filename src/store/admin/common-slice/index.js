@@ -10,23 +10,23 @@ export const getFeatureImages = createAsyncThunk(
   "/order/getFeatureImages",
   async () => {
     const response = await axios.get(
-      `https://zylomart-3bzq.onrender.com/api/common/feature/get`
+      `zylomart-production.up.railway.app/api/common/feature/get`,
     );
 
     return response.data;
-  }
+  },
 );
 
 export const addFeatureImage = createAsyncThunk(
   "/order/addFeatureImage",
   async (image) => {
     const response = await axios.post(
-      `https://zylomart-3bzq.onrender.com/api/common/feature/add`,
-      { image }
+      `zylomart-production.up.railway.app/api/common/feature/add`,
+      { image },
     );
 
     return response.data;
-  }
+  },
 );
 
 const commonSlice = createSlice({
