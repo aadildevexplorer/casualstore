@@ -217,7 +217,7 @@ export default function Footer() {
             <p className="flex items-center justify-center mt-3 text-sm">
               Powered by{" "}
               <a
-                href="https://aadilkhan.vercel.app/"
+                href="https://mdaadil.vercel.app/"
                 target="_blank"
                 className="p-1 ml-1 text-white rounded-md bg-primary"
               >
