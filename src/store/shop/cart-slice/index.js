@@ -12,7 +12,7 @@ export const addToCart = createAsyncThunk(
   "cart/addToCart",
   async ({ userId, productId, quantity }) => {
     const response = await axios.post(
-      "zylomart-production.up.railway.app/api/shop/cart/add",
+      "https://zylomart-production.up.railway.app/api/shop/cart/add",
       {
         userId,
         productId,
@@ -30,7 +30,7 @@ export const fetchCartItems = createAsyncThunk(
   "cart/fetchCartItems",
   async (userId) => {
     const response = await axios.get(
-      `zylomart-production.up.railway.app/api/shop/cart/get/${userId}`,
+      `https://zylomart-production.up.railway.app/api/shop/cart/get/${userId}`,
     );
     return response.data;
   },
@@ -42,7 +42,7 @@ export const deleteCartItem = createAsyncThunk(
   "cart/deleteCartItem",
   async ({ userId, productId }) => {
     const response = await axios.delete(
-      `zylomart-production.up.railway.app/api/shop/cart/${userId}/${productId}`,
+      `https://zylomart-production.up.railway.app/api/shop/cart/${userId}/${productId}`,
     );
     return response.data;
   },
@@ -54,7 +54,7 @@ export const updateCartQuantity = createAsyncThunk(
   "cart/updateCartQuantity",
   async ({ userId, productId, quantity }) => {
     const response = await axios.put(
-      " zylomart-production.up.railway.app/api/shop/cart/update-cart",
+      " https://zylomart-production.up.railway.app/api/shop/cart/update-cart",
       {
         userId,
         productId,

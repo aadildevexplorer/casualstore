@@ -28,7 +28,7 @@ const AdminUsersView = () => {
   const deleteUsers = async (id) => {
     try {
       const res = await axios.delete(
-        `zylomart-production.up.railway.app/api/admin/users/${id}`,
+        `https://zylomart-production.up.railway.app/api/admin/users/${id}`,
       );
       toast({ title: res.data.message });
       dispatch(fetchAllUsers());

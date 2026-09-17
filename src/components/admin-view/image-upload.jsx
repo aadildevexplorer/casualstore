@@ -42,7 +42,7 @@ function ProductImageUpload({
     const data = new FormData();
     data.append("my_file", imageFile);
     const response = await axios.post(
-      "zylomart-production.up.railway.app/api/admin/products/upload-image",
+      "https://zylomart-production.up.railway.app/api/admin/products/upload-image",
       data,
     );
     if (response.data.success) {
@@ -57,7 +57,7 @@ function ProductImageUpload({
 
   return (
     <div className="w-full max-w-md mx-auto mt-4">
-      <Label className="text-lg font-semibold  mb-2 block">Upload Image</Label>
+      <Label className="block mb-2 text-lg font-semibold">Upload Image</Label>
       <div
         onDragOver={handleDragOver}
         onDrop={handleDrop}
@@ -80,7 +80,7 @@ function ProductImageUpload({
               isEditMode ? "cursor-not-allowed" : ""
             }flex flex-col items-center justify-center h-32 cursor-pointer`}
           >
-            <UploadCloudIcon className="w-10 h-10 text-muted-foreground mb-2" />
+            <UploadCloudIcon className="w-10 h-10 mb-2 text-muted-foreground" />
             <span>Drag & drop or click upload image</span>
           </Label>
         ) : imageLoadingState ? (
@@ -88,7 +88,7 @@ function ProductImageUpload({
         ) : (
           <div className="flex items-center justify-between">
             <div className="flex item-center">
-              <FileIcon className="w-8 text-primary h-8 mr-2" />
+              <FileIcon className="w-8 h-8 mr-2 text-primary" />
             </div>
             <p className="text-sm font-medium">{imageFile.name}</p>
             <Button

@@ -49,7 +49,7 @@ function AdminOrdersView() {
   const deletedAllOrders = async (id) => {
     try {
       const res = await axios.delete(
-        `zylomart-production.up.railway.app/api/admin/orders/${id}`,
+        `https://zylomart-production.up.railway.app/api/admin/orders/${id}`,
       );
       toast({ title: res.data.message });
       dispatch(getAllOrdersForAdmin());
@@ -211,7 +211,7 @@ export default AdminOrdersView;
 //   const deletedAllOrders = async (id) => {
 //     try {
 //       const res = await axios.delete(
-//         `zylomart-production.up.railway.app/api/admin/orders/${id}`
+//         `https://zylomart-production.up.railway.app/api/admin/orders/${id}`
 //       );
 //       toast({ title: res.data.message });
 //       refetchOrders();

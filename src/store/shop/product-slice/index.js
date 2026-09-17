@@ -17,7 +17,7 @@ export const fetchAllFilteredProduct = createAsyncThunk(
     });
 
     const result = await axios.get(
-      `zylomart-production.up.railway.app/api/shop/products/get?${query}`,
+      `https://zylomart-production.up.railway.app/api/shop/products/get?${query}`,
     );
     return result?.data;
   },
@@ -29,7 +29,7 @@ export const fetchProductDetails = createAsyncThunk(
   "/products/fetchProductDetails",
   async (id) => {
     const result = await axios.get(
-      `zylomart-production.up.railway.app/api/shop/products/get/${id}`,
+      `https://zylomart-production.up.railway.app/api/shop/products/get/${id}`,
     );
     return result?.data;
   },

@@ -20,7 +20,7 @@ export default function AdminCookie() {
     queryKey: ["cookies"],
     queryFn: async () => {
       const res = await axios.get(
-        "zylomart-production.up.railway.app/api/admin/cookies/getCookie",
+        "https://zylomart-production.up.railway.app/api/admin/cookies/getCookie",
       );
       return res.data;
     },

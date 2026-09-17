@@ -17,7 +17,7 @@ export const registerUser = createAsyncThunk(
   "/auth/register",
   async (formData) => {
     const response = await axios.post(
-      "zylomart-production.up.railway.app/api/auth/register",
+      "https://zylomart-production.up.railway.app/api/auth/register",
       formData,
       { withCredentials: true },
     );
@@ -28,7 +28,7 @@ export const registerUser = createAsyncThunk(
 // Login
 export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
   const response = await axios.post(
-    "zylomart-production.up.railway.app/api/auth/login",
+    "https://zylomart-production.up.railway.app/api/auth/login",
     formData,
     { withCredentials: true },
   );
@@ -39,7 +39,7 @@ export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
 export const logoutUser = createAsyncThunk("/auth/logout", async () => {
   localStorage.removeItem("user");
   const response = await axios.post(
-    "zylomart-production.up.railway.app/api/auth/logout",
+    "https://zylomart-production.up.railway.app/api/auth/logout",
     {},
     { withCredentials: true },
   );
@@ -49,7 +49,7 @@ export const logoutUser = createAsyncThunk("/auth/logout", async () => {
 // Check Auth
 export const checkAuth = createAsyncThunk("/auth/checkauth", async () => {
   const response = await axios.get(
-    "zylomart-production.up.railway.app/api/auth/check-auth",
+    "https://zylomart-production.up.railway.app/api/auth/check-auth",
     {
       withCredentials: true,
       headers: {

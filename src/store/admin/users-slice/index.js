@@ -13,7 +13,7 @@ export const fetchAllUsers = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        "zylomart-production.up.railway.app/api/admin/users/get",
+        "https://zylomart-production.up.railway.app/api/admin/users/get",
       );
       return response.data;
     } catch (error) {

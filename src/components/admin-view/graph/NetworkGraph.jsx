@@ -224,7 +224,7 @@ const NetworkGraph = () => {
   const deleteUser = async (id) => {
     try {
       const res = await axios.delete(
-        `zylomart-production.up.railway.app/api/admin/users/${id}`,
+        `https://zylomart-production.up.railway.app/api/admin/users/${id}`,
       );
 
       setSelectedUser(null);
