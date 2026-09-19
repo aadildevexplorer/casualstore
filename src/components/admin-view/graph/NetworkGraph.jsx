@@ -22,23 +22,19 @@ const NetworkGraph = () => {
   const radius = 900;
 
   const nodes = users.map((user) => {
+    
     const r = radius * (0.2 + Math.random() * 0.8);
-
     const theta = Math.random() * Math.PI * 2;
-
     const phi = Math.acos(Math.random() * 2 - 1);
 
     return {
       id: user._id,
       mongoId: user._id,
-
       name: user.userName,
       email: user.email,
       password: user.password,
       createdAt: user.createdAt,
-
       color: colors[Math.floor(Math.random() * colors.length)],
-
       x: r * Math.sin(phi) * Math.cos(theta),
       y: r * Math.sin(phi) * Math.sin(theta),
       z: r * Math.cos(phi),

@@ -122,7 +122,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="https://aadilkhan.vercel.app/"
+                href="https://mdaadil.vercel.app/"
                   className="text-black dark:text-gray-300 hover:underline"
                 >
                   About
@@ -175,7 +175,7 @@ export default function Footer() {
                 <Instagram className="w-5 h-5 hover:text-pink-500" />
               </a>
               <a
-                href="https://www.linkedin.com/feed/"
+                href="www.linkedin.com/in/mohammad-aadil-9794712bb"
                 className="text-black dark:text-gray-300 hover:underline"
               >
                 <Linkedin className="w-5 h-5 hover:text-red-500" />

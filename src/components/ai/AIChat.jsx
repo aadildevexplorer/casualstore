@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import { useNavigate } from "react-router-dom";
 import logo from "../../../src/assets/logo.png";
 import ChatBot from "../chatbot/ChatBot";
+
 const AIChat = () => {
   const navigate = useNavigate();
   const messagesEndRef = useRef(null);

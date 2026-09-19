@@ -1,6 +1,5 @@
 import {
   CircleUser,
-  HousePlug,
   LogOut,
   Menu,
   ShoppingCart,
@@ -33,6 +32,7 @@ import { useEffect, useState } from "react";
 import { fetchCartItems } from "@/store/shop/cart-slice";
 import { Badge } from "../ui/badge";
 import { Label } from "../ui/label";
+import logo from "../../assets/logo.png";
 
 function HeaderRightContent() {
   const { cartItems } = useSelector((state) => state.shopCart);
@@ -195,7 +195,14 @@ function ShoppingHeader() {
         <header className="fixed top-0 left-0 z-40 w-full backdrop-blur-md">
           <div className="flex items-center justify-between h-16 px-4 md:px-6">
             <Link to="/shop/home" className="flex items-center gap-2">
-              <HousePlug className="w-6 h-6" />
+              <div className="flex items-center justify-center p-0.5 overflow-hidden bg-white rounded-full w-11 h-11">
+                <img
+                  src={logo}
+                  alt="Casual Store Logo"
+                  className="object-contain w-full h-full rounded-full"
+                />
+              </div>
+
               <span className="font-bold"> Casual-Store</span>
             </Link>
             <Sheet>
