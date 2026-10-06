@@ -25,7 +25,8 @@ function AuthRegister() {
         toast({
           title: data?.payload?.message,
         });
-        navigate("/auth/login");
+      navigate("/shop/home");
+        // navigate("/auth/login");
       } else {
         toast({
           title: data?.payload?.message,
@@ -34,11 +35,6 @@ function AuthRegister() {
       }
     });
   }
-  // useEffect(() => {
-  //   if (user) {
-  //     navigate("/shop/home");
-  //   }
-  // }, [user, navigate]);
 
   return (
     <>

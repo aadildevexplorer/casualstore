@@ -36,6 +36,15 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
       : 0;
 
   function handleAddReview() {
+    if (!user) {
+      toast({
+        title: "Login to continue",
+        variant: "destructive",
+      });
+
+      return;
+    }
+
     const hasReviewed = reviews.some((review) => review.userId === user?.id);
     if (hasReviewed) {
       toast({
@@ -51,14 +60,23 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
         userName: user?.userName,
         reviewMessage: reviewMsg,
         reviewValue: rating,
-      })
+      }),
     ).then((data) => {
       if (data?.payload?.success) {
         setRating(0);
         setReviewMsg("");
+
         dispatch(getReviews(productDetails?._id));
+
         toast({
           title: "Review added successfully!",
+        });
+      } else {
+        toast({
+          title:
+            data?.payload?.message ||
+            "You need to purchase product to review it.",
+          variant: "destructive",
         });
       }
     });
@@ -70,7 +88,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
         userId: user?.id,
         productId: getCurrentProductId,
         quantity: 1,
-      })
+      }),
     ).then((data) => {
       if (data?.payload?.success) {
         dispatch(fetchCartItems(user?.id));
@@ -179,7 +197,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
                   onClick={() => {
                     handleClick(
                       productDetails?._id,
-                      productDetails?.totalStock
+                      productDetails?.totalStock,
                     );
                     handleCard();
                   }}
@@ -225,7 +243,6 @@ function ProductDetailsDialog({ open, setOpen, productDetails, productId }) {
                         </div>
                         <div className="flex items-center gap-0.5">
                           <StarRatingComponent
-                            // rating={rating}
                             handleRatingChange={handleRatingChange}
                             rating={reviewItem?.reviewValue}
                           />
