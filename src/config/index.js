@@ -113,7 +113,7 @@ export const addProductFormElements = [
 
       // for women cloth
       { id: "zara", label: "Zara" },
-      { id: "hm", label: "H&M" },
+      // { id: "hm", label: "H&M" },
       { id: "mango", label: "Mango" },
       { id: "forever21", label: "Forever 21" },
       { id: "biba", label: "Biba" },

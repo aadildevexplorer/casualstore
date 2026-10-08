@@ -69,7 +69,7 @@ function AdminProducts() {
           })
         ).then((data) => {
 
-          if (data?.payload.success) {
+          if (data?.payload?.success) {
             setImageFile(null);
             dispatch(fetchAllProduct());
             setOpenCreateProductsDialog(false);
