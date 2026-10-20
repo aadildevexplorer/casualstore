@@ -27,14 +27,11 @@ export default function CookieBanner() {
       60 * 60 * 24 * 365 * 20
     }`;
     try {
-      await fetch(
-        "https://zylomart-production.up.railway.app/api/cookie/create",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ consent: type }),
-        },
-      );
+      await fetch("https://zylomart-3bzq.onrender.com/api/cookie/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ consent: type }),
+      });
     } catch (error) {
       console.error("Error saving consent:", error);
     }

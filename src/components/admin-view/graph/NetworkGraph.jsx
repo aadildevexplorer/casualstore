@@ -22,7 +22,6 @@ const NetworkGraph = () => {
   const radius = 900;
 
   const nodes = users.map((user) => {
-    
     const r = radius * (0.2 + Math.random() * 0.8);
     const theta = Math.random() * Math.PI * 2;
     const phi = Math.acos(Math.random() * 2 - 1);
@@ -220,7 +219,7 @@ const NetworkGraph = () => {
   const deleteUser = async (id) => {
     try {
       const res = await axios.delete(
-        `https://zylomart-production.up.railway.app/api/admin/users/${id}`,
+        `https://zylomart-3bzq.onrender.com/api/admin/users/${id}`,
       );
 
       setSelectedUser(null);
