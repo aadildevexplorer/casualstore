@@ -154,7 +154,7 @@ const AIChat = () => {
 
   return (
     <>
-      <ChatBot
+      {/* <ChatBot
         open={open}
         setOpen={setOpen}
         loading={loading}
@@ -174,7 +174,7 @@ const AIChat = () => {
         autoScroll={autoScroll}
         navigate={navigate}
         isClosing={isClosing}
-      />{" "}
+      />{" "} */}
     </>
   );
 };
